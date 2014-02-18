@@ -12,6 +12,8 @@ namespace GestureClient
 {
     public partial class AddDevice : PhoneApplicationPage
     {
+        private List<Device> onlineDevices = null;
+
         public AddDevice()
         {
             InitializeComponent();
@@ -19,21 +21,29 @@ namespace GestureClient
 
         private void DevicesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Devices item = (Devices) DevicesList.SelectedItem;
-            NavigationService.Navigate(new Uri("/Profile.xaml?Id=0", UriKind.Relative));
+            Device item = (Device) devicesList.SelectedItem;
+            String uri = "/UserProfile.xaml?" + "Id=" + "1";
+            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+        }
+
+        private void findOnlineDevices()
+        {
+            onlineDevices = Device.detect();
+            devicesList.ItemsSource = onlineDevices;
         }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            List<Devices> NewDevices = new List<Devices>();
-            Devices Device = new Devices();
-            Device.DeviceType = "";
-            Device.DeviceOS = "Android";
-            Device.DeviceName = "Pendru";
-            Device.DeviceIP = "";
-            Device.Id = 3;
+            //this.findOnlineDevices();
+            List<Device> NewDevices = new List<Device>();
+            Device Device = new Device();
+            Device.deviceType = "";
+            Device.deviceOS = "Android";
+            Device.deviceName = "Pendru";
+            Device.deviceIP = "";
+            Device.id = 3;
             NewDevices.Add(Device);
-            DevicesList.ItemsSource = NewDevices;
+            devicesList.ItemsSource = NewDevices;
         }
     }
 }

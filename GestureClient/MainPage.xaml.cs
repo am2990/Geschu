@@ -14,45 +14,32 @@ using Microsoft.Phone.Controls;
 
 namespace GestureClient
 {
-
-    public class Devices
-    {
-        public int Id { get; set; }
-        public string DeviceName { get; set; }
-        public string DeviceOS { get; set; }
-        public string DeviceType { get; set; }
-        public string DeviceIP { get; set; }
-    }
-
     public partial class MainPage : PhoneApplicationPage
     {
-        // Constructor
         public MainPage()
         {
             InitializeComponent();
-
-            // Set the data context of the listbox control to the sample data
-            //DataContext = App.ViewModel;
-            //this.Loaded += new RoutedEventHandler(MainPage_Loaded);
             this.LoadData();
         }
 
         private void LoadData()
         {
-            List<Devices> OnlineDevices = new List<Devices>();
-            Devices Device = new Devices();
-            Device.Id = 0;
-            Device.DeviceName = "Apurv di lappy";
-            Device.DeviceOS = "Windows 8";
-            Device.DeviceType = "Computer";
-            OnlineDevices.Add(Device);
-            Devices Device_1 = new Devices();
-            Device_1.Id = 1;
-            Device_1.DeviceName = "Apurv di lappy";
-            Device_1.DeviceOS = "Windows 8";
-            Device_1.DeviceType = "Computer";
-            OnlineDevices.Add(Device_1);
-            DevicesList.ItemsSource = OnlineDevices;
+            List<Device> onlineDevices = new List<Device>();
+            Device device = new Device();
+            device.id = 0;
+            device.deviceName = "Apurv di lappy";
+            device.deviceOS = "Windows 8";
+            device.deviceType = "Computer";
+            onlineDevices.Add(device);
+            Device device_1 = new Device();
+            device_1.id = 1;
+            device_1.deviceName = "Apurv di lappy";
+            device_1.deviceOS = "Windows 8";
+            device_1.deviceType = "Computer";
+            onlineDevices.Add(device_1);
+            devicesList.ItemsSource = onlineDevices;
+            //deviceList.ItemsSource = Device.getAll();
+            
         }
 
         // Load data for the ViewModel Items
