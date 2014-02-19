@@ -1,12 +1,8 @@
-﻿using System;
+﻿using Microsoft.Phone.Controls;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 
 namespace GestureClient
 {
@@ -21,7 +17,7 @@ namespace GestureClient
 
         private void DevicesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Device item = (Device) devicesList.SelectedItem;
+            Device item = (Device)devicesList.SelectedItem;
             String uri = "/UserProfile.xaml?" + "Id=" + "1";
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }

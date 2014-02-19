@@ -44,7 +44,7 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton  IconUri="Images/add.png" Text="Refresh" />
+            <shell:ApplicationBarIconButton  IconUri="Images/Icon/add.png" Text="Refresh" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Clear Profile List"/>
             </shell:ApplicationBar.MenuItems>

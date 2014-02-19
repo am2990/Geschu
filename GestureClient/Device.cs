@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace GestureClient
 {
@@ -14,20 +11,22 @@ namespace GestureClient
         public string deviceIP { get; set; }
 
         private void get(int id) { }
-       
-        public List<Device> getAll() 
+
+        public List<Device> getAll()
         {
             return null;
             //returns all saved Devices
         }
-        
-        public void save() { 
-        // saves the device in local database
+
+        public void save()
+        {
+            // saves the device in local database
         }
-        
-        public static List<Device> detect() 
-        { 
-            // Detects the devices around\
+
+        public static List<Device> detect()
+        {
+            // Detects the devices around
+            //@Apurv: Code krde ye kamine
             return null;
         }
 

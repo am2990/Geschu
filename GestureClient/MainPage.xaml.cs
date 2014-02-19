@@ -1,14 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
 
@@ -39,7 +31,7 @@ namespace GestureClient
             onlineDevices.Add(device_1);
             devicesList.ItemsSource = onlineDevices;
             //deviceList.ItemsSource = Device.getAll();
-            
+
         }
 
         // Load data for the ViewModel Items
@@ -53,10 +45,10 @@ namespace GestureClient
 
         private void Add_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/AddDevice.xaml",UriKind.Relative));
+            NavigationService.Navigate(new Uri("/AddDevice.xaml", UriKind.Relative));
         }
 
-       
+
 
     }
 }
