@@ -20,17 +20,18 @@ namespace GestureClient
             Device device = new Device();
             device.id = 0;
             device.deviceName = "Apurv di lappy";
-            device.deviceOS = "Windows 8";
-            device.deviceType = "Computer";
+            //device.deviceOS = "Windows 8";
+            //device.deviceType = "Computer";
             onlineDevices.Add(device);
             Device device_1 = new Device();
             device_1.id = 1;
             device_1.deviceName = "Apurv di lappy";
-            device_1.deviceOS = "Windows 8";
-            device_1.deviceType = "Computer";
+            //device_1.deviceOS = "Windows 8";
+            //device_1.deviceType = "Computer";
             onlineDevices.Add(device_1);
-            devicesList.ItemsSource = onlineDevices;
-            //deviceList.ItemsSource = Device.getAll();
+            //devicesList.ItemsSource = onlineDevices;
+            devicesList.ItemsSource = Device.getAll();
+
 
         }
 

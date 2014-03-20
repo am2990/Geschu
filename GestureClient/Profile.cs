@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace GestureClient
 {
-    public class Profile
+    public partial class Profile
     {
         public string name { get; set; }
         public int ownerId { get; set; }
