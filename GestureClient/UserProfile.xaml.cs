@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Phone.Controls;
 using System.Windows.Navigation;
+using System.Windows.Controls;
 
 namespace GestureClient
 {
@@ -37,8 +38,8 @@ namespace GestureClient
 
         private void userProfiles_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            Profile item = (Profile)userProfiles.SelectedItem;
-            String uri = "/UserProfile.xaml?" + "Id=" + item.id;
+            ListBox item = (ListBox)userProfiles.SelectedItem;
+            String uri = "/UserProfile.xaml?" + "Id=" + item.SelectedValue.ToString();
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
     }

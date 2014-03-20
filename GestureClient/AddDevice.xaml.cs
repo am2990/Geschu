@@ -30,6 +30,12 @@ namespace GestureClient
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.findOnlineDevices();
+        }
+
+
         private void DevicesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Device item = (Device)devicesList.SelectedItem;
@@ -56,14 +62,15 @@ namespace GestureClient
         {
             this.findOnlineDevices();
             List<Device> NewDevices = new List<Device>();
-            Device Device = new Device();
+            //Device Device = new Device();
             //Device.deviceType = "";
             //Device.deviceOS = "Android";
-            Device.deviceName = "Pendru";
-            Device.deviceIP = "";
-            Device.id = 3;
-            NewDevices.Add(Device);
+            //Device.deviceName = "Pendru";
+            //Device.deviceIP = "";
+            //Device.id = 3;
+            //NewDevices.Add(Device);
             //devicesList.ItemsSource = NewDevices;
+            devicesList.ItemsSource = onlineDevices;
         }
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
@@ -117,6 +124,8 @@ namespace GestureClient
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             this.tbProgress.Text = (e.ProgressPercentage.ToString() + "%");
+            devicesList.ItemsSource = onlineDevices;
+
         }
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

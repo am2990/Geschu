@@ -8,8 +8,8 @@ namespace GestureClient
     {
         public int id { get; set; }
         public string deviceName { get; set; }
-        public string deviceOS { get; set; }
-        public string deviceType { get; set; }
+        //public string deviceOS { get; set; }
+        //public string deviceType { get; set; }
         public string deviceIP { get; set; }
         public string devicePort { get; set; }
         private const int maxDeviceSaved = 10;
