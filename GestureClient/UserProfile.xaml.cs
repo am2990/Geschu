@@ -33,6 +33,7 @@ namespace GestureClient
             profile.ownerId = owner_id;
             profile.id = 0;
             UserProfile.Add(profile);
+            // @Pranav The next line I get error Additional information: Items collection must be empty before using ItemsSource.
             userProfiles.ItemsSource = UserProfile;
         }
 
