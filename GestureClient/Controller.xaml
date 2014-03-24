@@ -22,15 +22,31 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28"/>
+        <Grid x:Name="stack"  Grid.Row="0" Margin="12,17,0,28">
+         </Grid>
+
+        <Canvas x:Name="ContentPanel1" Grid.Row="1" Margin="12,0,12,0">
+            <Button x:Name="addBtn" Content="Add button" Click="addBtn_Click" />
+        </Canvas>
+
+        
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Rectangle x:Name="myRectangle" Width="200" Height="200" Fill="Blue">
+            <ListBox x:Name="list_box">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <toolkit:WrapPanel ItemHeight="100" ItemWidth="100"  Height="300">
+                        </toolkit:WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <!--<Rectangle x:Name="myRectangle" Width="200" Height="200" Fill="Blue" Margin="127,226,129,225">
                 <toolkit:GestureService.GestureListener>
                     <toolkit:GestureListener DragDelta="GestureListener_DragDelta"/>
                 </toolkit:GestureService.GestureListener>
-            </Rectangle>
+            </Rectangle>-->
+            </ListBox>
         </Grid>
     </Grid>
 

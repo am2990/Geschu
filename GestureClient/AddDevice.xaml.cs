@@ -62,15 +62,15 @@ namespace GestureClient
         {
             this.findOnlineDevices();
             List<Device> NewDevices = new List<Device>();
-            //Device Device = new Device();
+            Device Device = new Device();
             //Device.deviceType = "";
             //Device.deviceOS = "Android";
-            //Device.deviceName = "Pendru";
-            //Device.deviceIP = "";
-            //Device.id = 3;
-            //NewDevices.Add(Device);
-            //devicesList.ItemsSource = NewDevices;
-            devicesList.ItemsSource = onlineDevices;
+            Device.deviceName = "Pendru";
+            Device.deviceIP = "";
+            Device.id = 3;
+            NewDevices.Add(Device);
+            devicesList.ItemsSource = NewDevices;
+            //devicesList.ItemsSource = onlineDevices;
         }
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)

@@ -13,6 +13,7 @@ namespace GestureClient
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            InitializeComponent();
             string msg;
             if (NavigationContext.QueryString.TryGetValue("Id", out msg))
             {
@@ -33,15 +34,19 @@ namespace GestureClient
             profile.ownerId = owner_id;
             profile.id = 0;
             UserProfile.Add(profile);
-            // @Pranav The next line I get error Additional information: Items collection must be empty before using ItemsSource.
-            userProfiles.ItemsSource = UserProfile;
+            profilesList.ItemsSource = UserProfile;
         }
 
-        private void userProfiles_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void profilesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            ListBox item = (ListBox)userProfiles.SelectedItem;
+            ListBox item = (ListBox)profilesList.SelectedItem;
             String uri = "/UserProfile.xaml?" + "Id=" + item.SelectedValue.ToString();
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+        }
+
+        private void Add_Profile(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Controller.xaml",UriKind.Relative));
         }
     }
 }
