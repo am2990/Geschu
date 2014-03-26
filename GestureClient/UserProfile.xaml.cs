@@ -29,10 +29,7 @@ namespace GestureClient
         private void LoadProfiles(int owner_id)
         {
             List<Profile> UserProfile = new List<Profile>();
-            Profile profile = new Profile();
-            profile.name = "Profile 1";
-            profile.ownerId = owner_id;
-            profile.id = 0;
+            Profile profile = new Profile("Profile 1", owner_id, 0);
             UserProfile.Add(profile);
             profilesList.ItemsSource = UserProfile;
         }

@@ -79,6 +79,10 @@
       <DependentUpon>Controller.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shapes.cs" />
+    <Compile Include="ShapesProperties.xaml.cs">
+      <DependentUpon>ShapesProperties.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TcpSocket.cs" />
     <Compile Include="UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
@@ -104,6 +108,10 @@
       <SubType>Designer</SubType>
     </DesignData>
     <Page Include="Controller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShapesProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

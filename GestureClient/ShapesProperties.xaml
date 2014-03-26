@@ -1,0 +1,46 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="GestureClient.ShapesProperties"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" Margin="0,62,0,-62">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <Grid x:Name="properties_grid" HorizontalAlignment="Left" Height="535" Margin="15,15,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="465">
+            <TextBlock HorizontalAlignment="Left" Margin="71,82,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Shape" VerticalAlignment="Top" Width="170"/>
+            <TextBlock HorizontalAlignment="Left" Margin="70,145,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Color" VerticalAlignment="Top" Width="170"/>
+            <TextBlock HorizontalAlignment="Left" Margin="70,218,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Character" VerticalAlignment="Top" Width="170"/>
+            <TextBlock HorizontalAlignment="Left" Margin="144,18,0,0" Grid.Row="1" TextWrapping="Wrap" Text="BUTTON PROPERTIES" VerticalAlignment="Top" Width="206"/>
+            <Button Content="Done" HorizontalAlignment="Left" Margin="315,275,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
+            <toolkit:ListPicker x:Name="shape_picker" Margin="215,74,60,417" RenderTransformOrigin="1.194,1.8"/>
+            <toolkit:ListPicker x:Name="color_picker" Margin="215,140,60,347" RenderTransformOrigin="1.194,1.8"/>
+            <TextBox x:Name="character" Margin="205,200,50,267">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="Text" />
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+        </Grid>
+    </Grid>
+
+
+</phone:PhoneApplicationPage>

@@ -1,16 +1,41 @@
 ﻿
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Shapes;
 namespace GestureClient
 {
     public partial class Profile
     {
-        public string name { get; set; }
-        public int ownerId { get; set; }
-        public int id { get; set; }
-        private ActionButton button;
-        private int priority;
+         string name ;
+         int ownerId ;
+         int id ;
+         ActionButton button;
+         int priority;
 
-        public void Add()
+         List<Shapes> profile_shapes;
+
+        public void add_Shapes(Shape shape, Point pos , char value)
+        {
+            profile_shapes.Add(new 
+                Shapes(shape, pos.X, pos.Y, value));
+        }
+
+        public List<Shapes> get_profile_shapes()
+        {
+            return this.profile_shapes;
+        }
+        public Profile(string name, int owner_id, int id=-1)
+        {
+            this.profile_shapes = new List<Shapes>();
+            this.name = name;
+            this.ownerId = owner_id;
+            this.id = id;
+        }
+
+       
+
+        public void save()
         {
             List<Profile> profile_settings = null;
             object profile_obj = Database.get(this.ownerId.ToString());
@@ -37,7 +62,7 @@ namespace GestureClient
                 return profile_obj as List<Profile>;
         }
 
-        public Profile getProfile(int profileId, int deviceId)
+        public Profile get_profile(int profileId, int deviceId)
         {
             foreach (Profile profile in this.getAllProfiles(deviceId))
             {
