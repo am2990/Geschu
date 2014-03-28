@@ -64,9 +64,9 @@ namespace GestureClient
 
         public Profile get_profile(int profileId, int deviceId)
         {
-            foreach (Profile profile in this.getAllProfiles(deviceId))
+            foreach (Profile profile in this.getAllProfiles(profileId))
             {
-                if (profile.id == profileId)
+                if (profile.id == deviceId)
                     return profile;
             }
             return null;

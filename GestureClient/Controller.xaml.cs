@@ -32,13 +32,15 @@ namespace GestureClient
             controller_profile = new Profile("temp_user", 0 , -1);
         }
 
-        protected override void onNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             string msg;
             if (NavigationContext.QueryString.TryGetValue("profileid", out msg))
             {
-                int id = ToInt32(msg);
-            }  
+                int id = Convert.ToInt32(msg);
+                this.load_profile();
+            }
+  
         }
 
         void Rectangle_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
@@ -84,6 +86,8 @@ namespace GestureClient
         private void GestureListener_Tap(object sender, Microsoft.Phone.Controls.GestureEventArgs e)
         {
             (sender as Rectangle).Fill = new SolidColorBrush(Colors.White);
+            this.save_profile();
+            this.list_box.Items.Remove(e);
             NavigationService.Navigate(new Uri("/ShapesProperties.xaml", UriKind.Relative));
         }
 
@@ -133,11 +137,13 @@ namespace GestureClient
         private void load_profile()
         {
             Profile current_profile = controller_profile.get_profile(0,-1);
+            int i = 0;
             if (current_profile == null)
                 return;
             foreach (Shapes profile_shapes in current_profile.get_profile_shapes())
             {
                 profile_shape = profile_shapes.load_shape();
+                list_box.Items.Add(new Rectangle());
             }
         }
 
