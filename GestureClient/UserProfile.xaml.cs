@@ -29,15 +29,16 @@ namespace GestureClient
         private void LoadProfiles(int owner_id)
         {
             List<Profile> UserProfile = new List<Profile>();
-            Profile profile = new Profile("Profile 1", owner_id, 0);
+            Profile profile = new Profile("Vlc Profile", owner_id, 0);
             UserProfile.Add(profile);
             profilesList.ItemsSource = UserProfile;
         }
 
         private void profilesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            ListBox item = (ListBox)profilesList.SelectedItem;
-            String uri = "/UserProfile.xaml?" + "Id=" + item.SelectedValue.ToString();
+            //ListBox item = (ListBox)profilesList.SelectedItem;
+            //String uri = "/UserProfile.xaml?" + "Id=" + item.SelectedValue.ToString();
+            String uri = "/Profile_VLC.xaml";
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 
