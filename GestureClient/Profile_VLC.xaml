@@ -27,17 +27,37 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button HorizontalAlignment="Left" Margin="3,-8,0,0" VerticalAlignment="Top" Height="167" Width="230" Foreground="{StaticResource PhoneInverseBackgroundBrush}" KeyDown="Play_Down" KeyUp="Play_Up">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" >
+            <Button x:Name="Play" HorizontalAlignment="Left" Margin="3,-8,0,0" VerticalAlignment="Top" Height="167" Width="230" Foreground="{StaticResource PhoneInverseBackgroundBrush}"  MouseLeftButtonUp="OnMouseLeftUp" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" Tag="32" >
                 <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/appbar.transport.play.rest.png"/>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/pause.png"/>
                 </Button.Background>
             </Button>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="223,-8,0,0" VerticalAlignment="Top" Height="167" Width="230"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="3,146,0,0" VerticalAlignment="Top" Height="167" Width="230"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="223,146,0,0" VerticalAlignment="Top" Height="167" Width="230"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="3,299,0,0" VerticalAlignment="Top" Height="167" Width="230"/>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="220,299,0,0" VerticalAlignment="Top" Height="167" Width="230"/>
+            <Button Content="" HorizontalAlignment="Left" Margin="223,-8,0,0" VerticalAlignment="Top" Height="167" Width="230" MouseLeftButtonUp="OnMouseLeftUp" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" Tag="173">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/volume-off.png"/>
+                </Button.Background>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Margin="3,146,0,0" VerticalAlignment="Top" Height="167" Width="230" MouseLeftButtonUp="OnMouseLeftUp" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" Tag="175">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/volume-up.png"/>
+                </Button.Background>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Margin="223,146,0,0" VerticalAlignment="Top" Height="167" Width="230" ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="174">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/volume-down.png"/>
+                </Button.Background>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Margin="3,299,0,0" VerticalAlignment="Top" Height="167" Width="230" ClickMode="Hover"  Tag="163,37" Click="OnJumpDown" >
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/go-back.png"/>
+                </Button.Background>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Margin="220,299,0,0" VerticalAlignment="Top" Height="167" Width="230" ClickMode="Hover"  Click="OnJumpDown" Tag="163,39">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/jump ahead.png"/>
+                </Button.Background>
+            </Button>
 
         </Grid>
     </Grid>
