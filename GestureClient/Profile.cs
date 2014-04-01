@@ -12,21 +12,28 @@ namespace GestureClient
          int id ;
          ActionButton button;
          int priority;
-
+         Dictionary<Shape, List<double>> shape_map = null;
          List<Shapes> profile_shapes;
 
         public void add_Shapes(Shape shape, Point pos , char value)
         {
             profile_shapes.Add(new 
                 Shapes(shape, pos.X, pos.Y, value));
+            this.shape_map.Add(shape,new List<double>(new double[]{pos.X, pos.Y}));
         }
 
+        public void update_Shape(Shape shape, Point pos, char value)
+        {
+            this.shape_map.Remove(shape);
+            this.shape_map.Add(shape, new List<double>(new double[]{pos.X, pos.Y}));
+        }
         public List<Shapes> get_profile_shapes()
         {
             return this.profile_shapes;
         }
         public Profile(string name, int owner_id, int id=-1)
         {
+            this.shape_map = new Dictionary<Shape, List<double>>();
             this.profile_shapes = new List<Shapes>();
             this.name = name;
             this.ownerId = owner_id;

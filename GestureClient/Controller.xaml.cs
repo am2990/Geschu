@@ -86,6 +86,7 @@ namespace GestureClient
         private void GestureListener_Tap(object sender, Microsoft.Phone.Controls.GestureEventArgs e)
         {
             (sender as Rectangle).Fill = new SolidColorBrush(Colors.White);
+            this.update_profile();
             this.save_profile();
             this.list_box.Items.Remove(e);
             NavigationService.Navigate(new Uri("/ShapesProperties.xaml", UriKind.Relative));
@@ -109,13 +110,13 @@ namespace GestureClient
             return shape;
         }
 
-        private Shape set_shape_property(Shape shape)
+        private Shape set_shape_property(Shape shape, int row = 0, int column = 0)
         {    
             shape.Fill = new SolidColorBrush(Colors.Brown);
             shape.Height = 200;
             shape.Width = 200;
-            shape.SetValue(Grid.RowProperty, 0);
-            shape.SetValue(Grid.ColumnProperty, 0);
+            shape.SetValue(Grid.RowProperty, row);
+            shape.SetValue(Grid.ColumnProperty, column);
             return shape;
         }
 
@@ -134,6 +135,18 @@ namespace GestureClient
             controller_profile.save();
         }
 
+        private Shape shape_clone(Shapes original)
+        {
+            Shape clone_shape = new Rectangle();
+            Shape original_shape = original.load_shape();
+            clone_shape.Fill = original_shape.Fill;
+            clone_shape.Height = original_shape.Height;
+            clone_shape.Width = original_shape.Width;
+            clone_shape.SetValue(Grid.RowProperty, (int) original.get_row());
+            clone_shape.SetValue(Grid.ColumnProperty, (int) original.get_column());
+            return clone_shape;
+        }
+
         private void load_profile()
         {
             Profile current_profile = controller_profile.get_profile(0,-1);
@@ -142,8 +155,8 @@ namespace GestureClient
                 return;
             foreach (Shapes profile_shapes in current_profile.get_profile_shapes())
             {
-                profile_shape = profile_shapes.load_shape();
-                list_box.Items.Add(new Rectangle());
+
+                list_box.Items.Add(shape_clone(profile_shapes));
             }
         }
 

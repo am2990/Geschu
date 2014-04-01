@@ -10,7 +10,7 @@ namespace GestureClient
     public class Shapes
     {
         Shape shape;
-        enum ShapeType {Rectangle, Circle};
+        public enum ShapeType {Rectangle, Circle};
         ShapeType type;
         Brush color;
         double row, column;
@@ -28,7 +28,18 @@ namespace GestureClient
             this.value = value;
             this.type = (shape is Rectangle) ? ShapeType.Rectangle : ShapeType.Circle;
         }
-
+        public double get_row()
+        {
+            return this.row;
+        }
+        public double get_column()
+        {
+            return this.column;
+        }
+        public ShapeType get_type()
+        {
+            return this.type;
+        }
         public Shape load_shape()
         {
             return this.shape;
