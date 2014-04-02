@@ -83,9 +83,6 @@
     <Compile Include="Controller.xaml.cs">
       <DependentUpon>Controller.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Profile_HAWX.xaml.cs">
-      <DependentUpon>Profile_HAWX.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Profile_VLC.xaml.cs">
       <DependentUpon>Profile_VLC.xaml</DependentUpon>
     </Compile>
@@ -120,10 +117,6 @@
       <SubType>Designer</SubType>
     </DesignData>
     <Page Include="Controller.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Profile_HAWX.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,5 +8,6 @@ namespace GestureClient
     class Static
     {
         public static UserProfile profile = null;
+        public static string profile_name = null;
     }
 }

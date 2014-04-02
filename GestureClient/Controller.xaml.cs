@@ -30,6 +30,7 @@ namespace GestureClient
         {
             InitializeComponent();
             controller_profile = new Profile("temp_user", 0 , -1);
+            profile_name.Text = "";
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -188,7 +189,11 @@ namespace GestureClient
                 new EventHandler<ManipulationCompletedEventArgs>(Rectangle_ManipulationCompleted); */
             list_box.Items.Add(addition_shape);
         }
-        
+        private void Save_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Save button works!");
+            //Do work for your application here.
+        }
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             Button newButton = new Button();
@@ -207,6 +212,11 @@ namespace GestureClient
             MessageBox.Show("Hello phone!");
         }
 
+        void save_profile_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Pressed!");
+        }
+
         public TransformGroup _addition_shape_transform { get; set; }
 
         public GestureListener shape_gesture { get; set; }
@@ -214,5 +224,15 @@ namespace GestureClient
         public TransformGroup shape_transform { get; set; }
 
         public Shape profile_shape { get; set; }
+
+        private void ApplicationBarMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profile_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Static.profile_name = profile_name.Text;
+        }
     }
 }
