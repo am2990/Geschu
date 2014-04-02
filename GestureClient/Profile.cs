@@ -15,11 +15,11 @@ namespace GestureClient
          Dictionary<Shape, List<double>> shape_map = null;
          List<Shapes> profile_shapes;
 
-        public void add_Shapes(Shape shape, Point pos , char value)
+        public void add_Shapes(Shape shape, Transform pos , char value)
         {
             profile_shapes.Add(new 
-                Shapes(shape, pos.X, pos.Y, value));
-            this.shape_map.Add(shape,new List<double>(new double[]{pos.X, pos.Y}));
+                Shapes(shape, pos, value));
+            //this.shape_map.Add(shape,new List<double>(new double[]{pos.X, pos.Y}));
         }
 
         public void update_Shape(Shape shape, Point pos, char value)
@@ -60,7 +60,7 @@ namespace GestureClient
             }
         }
 
-        public List<Profile> getAllProfiles(int deviceId)
+        public static List<Profile> getAllProfiles(int deviceId)
         {
             object profile_obj = Database.get(deviceId.ToString());
             if (profile_obj == null)
@@ -69,9 +69,9 @@ namespace GestureClient
                 return profile_obj as List<Profile>;
         }
 
-        public Profile get_profile(int profileId, int deviceId)
+        public static Profile get_profile(int profileId, int deviceId)
         {
-            foreach (Profile profile in this.getAllProfiles(profileId))
+            foreach (Profile profile in getAllProfiles(profileId))
             {
                 if (profile.id == deviceId)
                     return profile;

@@ -124,8 +124,8 @@ namespace GestureClient
         {
             if (addition_shape != null)
             {
-                controller_profile.add_Shapes(addition_shape, 
-                    addition_shape.TransformToVisual(list_box).Transform(new Point(0,0)),
+                controller_profile.add_Shapes(addition_shape,
+                    addition_shape.RenderTransform,
                     'A');
             }
         }
@@ -144,18 +144,20 @@ namespace GestureClient
             clone_shape.Width = original_shape.Width;
             clone_shape.SetValue(Grid.RowProperty, (int) original.get_row());
             clone_shape.SetValue(Grid.ColumnProperty, (int) original.get_column());
+            clone_shape = set_shape_transform(clone_shape);
+            clone_shape = set_shape_listener(clone_shape);
+            clone_shape.RenderTransform = original.transform;
+;
             return clone_shape;
         }
 
         private void load_profile()
         {
-            Profile current_profile = controller_profile.get_profile(0,-1);
-            int i = 0;
-            if (current_profile == null)
+            this.controller_profile = Profile.get_profile(0, -1);
+            if (this.controller_profile == null)
                 return;
-            foreach (Shapes profile_shapes in current_profile.get_profile_shapes())
+            foreach (Shapes profile_shapes in this.controller_profile.get_profile_shapes())
             {
-
                 list_box.Items.Add(shape_clone(profile_shapes));
             }
         }

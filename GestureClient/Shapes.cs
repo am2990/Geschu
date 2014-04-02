@@ -16,6 +16,7 @@ namespace GestureClient
         double row, column;
         double width, height;
         char value;
+        public Transform transform;
         
         public Shapes(Shape shape , double pos_x, double pos_y, char value ) 
         {
@@ -25,6 +26,17 @@ namespace GestureClient
             this.height = shape.Height;
             this.row = pos_x;
             this.column = pos_y;
+            this.value = value;
+            this.type = (shape is Rectangle) ? ShapeType.Rectangle : ShapeType.Circle;
+        }
+
+        public Shapes(Shape shape,Transform transform, char value)
+        {
+            this.shape = shape;
+            this.color = shape.Fill;
+            this.width = shape.Width;
+            this.height = shape.Height;
+            this.transform = transform;
             this.value = value;
             this.type = (shape is Rectangle) ? ShapeType.Rectangle : ShapeType.Circle;
         }

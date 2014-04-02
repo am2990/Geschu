@@ -94,6 +94,7 @@
     <Compile Include="ShapesProperties.xaml.cs">
       <DependentUpon>ShapesProperties.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Static.cs" />
     <Compile Include="TcpSocket.cs" />
     <Compile Include="UserProfile.xaml.cs">
       <DependentUpon>UserProfile.xaml</DependentUpon>
