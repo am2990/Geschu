@@ -10,6 +10,8 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace GestureClient
 {
@@ -25,23 +27,52 @@ namespace GestureClient
         private Profile controller_profile = null;
 
         private static SHAPES_ALLOWED default_shape = SHAPES_ALLOWED.rectangle;
+        private string default_profile_name = "Profile Name";
 
         public Controller()
         {
             InitializeComponent();
             controller_profile = new Profile("temp_user", 0 , -1);
-            profile_name.Text = "";
+            profile_name.Text = this.default_profile_name;
+            //this.activateBlinker();
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             string msg;
+            profile_name.Text = Static.profile_name;
             if (NavigationContext.QueryString.TryGetValue("profileid", out msg))
             {
                 int id = Convert.ToInt32(msg);
                 this.load_profile();
             }
-  
+            //this.activateBlinker();  
+        }
+
+        void activateBlinker()
+        {
+            string display_text = profile_name.Text;
+            Boolean display = true;
+
+            Timer timer = new Timer((obj) =>
+            {
+                Dispatcher pageDispatcher = obj as Dispatcher;
+                
+                pageDispatcher.BeginInvoke(() =>
+                {
+                    if (display)
+                    {
+                        profile_name.Text = display_text;
+                        display = false;
+                    }
+                    else
+                    {
+                        profile_name.Text = display_text + "|";
+                        display = true;
+                    }
+                });
+
+            }, this.Dispatcher, 1000, 1000);
         }
 
         void Rectangle_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
@@ -191,7 +222,9 @@ namespace GestureClient
         }
         private void Save_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Save button works!");
+            if ((profile_name.Text == this.default_profile_name) ||
+                    (profile_name.Text.Trim().Length == 0))
+                MessageBox.Show("Enter a valid name for the profile");
             //Do work for your application here.
         }
         private void addBtn_Click(object sender, RoutedEventArgs e)

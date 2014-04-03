@@ -148,6 +148,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="backimage.jpg" />
+    <Content Include="Images\Icon\appbar.save.rest.png" />
     <Content Include="Images\Icon\appbar.transport.play.rest.png" />
     <Content Include="Images\Icon\computer.png" />
     <Content Include="GestureClient.csproj.user" />
