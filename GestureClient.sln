@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestureClient", "GestureClient\GestureClient.csproj", "{FA4B2E3E-F984-4F05-8596-84507B676892}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneApp1", "PhoneApp1\PhoneApp1.csproj", "{D37E3CC1-D717-4300-BE02-10231E6FE4C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragGuesture", "..\DragGuesture\DragGuesture\DragGuesture.csproj", "{F69C0996-FA3C-460C-8957-116FCE42E906}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,18 +15,6 @@ Global
 		{FA4B2E3E-F984-4F05-8596-84507B676892}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA4B2E3E-F984-4F05-8596-84507B676892}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA4B2E3E-F984-4F05-8596-84507B676892}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{D37E3CC1-D717-4300-BE02-10231E6FE4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D37E3CC1-D717-4300-BE02-10231E6FE4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D37E3CC1-D717-4300-BE02-10231E6FE4C4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{D37E3CC1-D717-4300-BE02-10231E6FE4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D37E3CC1-D717-4300-BE02-10231E6FE4C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D37E3CC1-D717-4300-BE02-10231E6FE4C4}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{F69C0996-FA3C-460C-8957-116FCE42E906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F69C0996-FA3C-460C-8957-116FCE42E906}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F69C0996-FA3C-460C-8957-116FCE42E906}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{F69C0996-FA3C-460C-8957-116FCE42E906}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F69C0996-FA3C-460C-8957-116FCE42E906}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F69C0996-FA3C-460C-8957-116FCE42E906}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
