@@ -31,10 +31,17 @@ namespace GestureClient
             shape_picker.Items.Add("Rectangle");
         }
 
+        private void save_properties()
+        {
+            Static.Shape_info.color = Static.Shape_info.Color.green;
+            Static.Shape_info._type = Static.Shape_info.Type.circle;
+            Static.Shape_info._char = character.Text;
+        }
       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.save_properties();
             NavigationService.Navigate(new Uri("/Controller.xaml?profileid=-1",UriKind.Relative));
         }
     }
