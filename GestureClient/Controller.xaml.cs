@@ -191,7 +191,8 @@ namespace GestureClient
         }
         private void Save_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Save button works!");
+            this.save_profile();
+            NavigationService.Navigate(new Uri("/UserProfile.xaml",UriKind.Relative));
             //Do work for your application here.
         }
         private void addBtn_Click(object sender, RoutedEventArgs e)

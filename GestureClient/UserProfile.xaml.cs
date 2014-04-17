@@ -19,6 +19,10 @@ namespace GestureClient
             {
                 LoadProfiles(Convert.ToInt32(msg));
             }
+            else
+            {
+                LoadProfiles(0);
+            }
         }
 
         public UserProfile()
@@ -29,17 +33,29 @@ namespace GestureClient
         private void LoadProfiles(int owner_id)
         {
             List<Profile> UserProfile = new List<Profile>();
-            Profile profile = new Profile("Vlc Profile", owner_id, 0);
+            Profile profile = new Profile("VLC Profile", owner_id, 0);
+            profile.uri = "/Profile_VLC.xaml";
+            Profile profile_hawx = new Profile("HAWX Profile", owner_id, 0);
+            profile_hawx.uri = "/Profile_hawx2.xaml";
+            Profile profile_ppt = new Profile("PPT Profile", owner_id, 0);
+            profile_ppt.uri = "/Profile_PowerPoint.xaml";
             UserProfile.Add(profile);
+            UserProfile.Add(profile_hawx);
+            UserProfile.Add(profile_ppt);
+            foreach (Profile profilep in Profile.getAllProfiles(owner_id))
+            {
+                UserProfile.Add(profilep);
+            }
             profilesList.ItemsSource = UserProfile;
         }
 
         private void profilesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            //ListBox item = (ListBox)profilesList.SelectedItem;
-            //String uri = "/UserProfile.xaml?" + "Id=" + item.SelectedValue.ToString();
-            String uri = "/Profile_VLC.xaml";
-            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+            Profile selected = profilesList.SelectedItem as Profile;
+            string navigateTo = selected.uri as string; 
+
+            //String uri = "/Profile_VLC.xaml";
+            NavigationService.Navigate(new Uri(navigateTo, UriKind.Relative));
         }
 
         private void Add_Profile(object sender, EventArgs e)

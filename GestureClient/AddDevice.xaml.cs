@@ -65,7 +65,7 @@ namespace GestureClient
             Device Device = new Device();
             //Device.deviceType = "";
             //Device.deviceOS = "Android";
-            Device.deviceName = "Pendru";
+            Device.deviceName = "My PC";
             Device.deviceIP = "";
             Device.id = 3;
             NewDevices.Add(Device);

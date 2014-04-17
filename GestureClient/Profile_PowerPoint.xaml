@@ -1,0 +1,87 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="GestureClient.Profile_PowerPoint"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Remotely" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="PPT Controller" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Button x:Name="buttonNext" Content="Next" Width="230"  Height ="149"
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="238,0,6,456" BorderThickness="5" 
+                    FontSize="40" FontFamily="Segoe WP Semibold" ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp" 
+                    MouseLeftButtonDown="OnMouseLeftDown" Tag="39">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="buttonPrevious" Content="Previous" 
+            		Width="230"  Height ="149" HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" Margin="4,0,222,456" BorderThickness="5"
+                    FontSize="40" FontFamily="Segoe WP Semibold" 
+                    ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="37">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/"/>
+                </Button.Background>
+            </Button>
+
+            <!--<Button x:Name="buttonNormal"  Click="buttonNormal_Click" Width="160"  Height ="136" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-4,0,300,10" BorderThickness="5" 
+                     ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="Alt:87:76">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/NormalScreen.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="buttonSlideSorter" Click="buttonSlideSorter_Click" Width="164"  Height ="136" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="148,0,144,10" BorderThickness="5"
+                    ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="18:87:73">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/SlideSorter.png"/>
+                </Button.Background>
+            </Button>-->
+
+            <Button x:Name="buttonSlideShow" Width="224"  Height ="148" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,222,274" BorderThickness="5"
+            	    ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="116">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/office-presentation.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="buttonEsc" Content="ESC" Width="224"  Height ="148" 
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="229,0,3,274" BorderThickness="5"
+                    FontSize="40" FontFamily="Segoe WP Semibold"
+                    ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="27">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/"/>
+                </Button.Background>
+
+            </Button>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

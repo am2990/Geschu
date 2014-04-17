@@ -7,9 +7,11 @@ namespace GestureClient
 {
     public partial class Profile
     {
-         string name ;
-         int ownerId ;
+         public string name { get; set; }
+         public int ownerId { get; set; }
          int id ;
+         public string uri { get; set; }
+
          ActionButton button;
          int priority;
          Dictionary<Shape, List<double>> shape_map = null;
@@ -45,6 +47,7 @@ namespace GestureClient
         public void save()
         {
             List<Profile> profile_settings = null;
+            this.name = Static.profile_name;
             object profile_obj = Database.get(this.ownerId.ToString());
             if (profile_obj == null)
             {
