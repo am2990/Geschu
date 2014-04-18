@@ -22,14 +22,14 @@ namespace GestureClient
         private void update_color_picker()
         {
             
-            color_picker.Items.Add("Red");
-            color_picker.Items.Add("Green");
+            //color_picker.Items.Add("Red");
+            //color_picker.Items.Add("Green");
         }
 
         private void update_shape_picker()
         {
-            shape_picker.Items.Add("Circle");
-            shape_picker.Items.Add("Rectangle");
+            //shape_picker.Items.Add("Circle");
+            //shape_picker.Items.Add("Rectangle");
         }
 
         private void save_properties()

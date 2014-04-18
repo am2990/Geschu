@@ -39,8 +39,23 @@ namespace GestureClient
         private void DevicesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Device item = (Device)devicesList.SelectedItem;
+            addToRecentDevices(item);
             String uri = "/UserProfile.xaml?" + "Id=" + item.id;
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+        }
+
+        private void addToRecentDevices(Device item)
+        {
+            List<Device> deviceList = Device.getAll();
+            if (!deviceList.Contains(item))
+            {
+                if (deviceList.Count > 3)
+                {
+                    deviceList.RemoveAt(3);
+                }
+                deviceList.Add(item);
+                Database.add("devices", deviceList);
+            }
         }
 
         private void findOnlineDevices()
