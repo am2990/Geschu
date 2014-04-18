@@ -8,6 +8,7 @@
 
     <!--Application Resources-->
     <Application.Resources>
+        
         <Style x:Key="PickerBoxButton" TargetType="ButtonBase">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}"/>

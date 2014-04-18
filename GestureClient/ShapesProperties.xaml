@@ -27,22 +27,12 @@
 
 
         <Grid x:Name="properties_grid" HorizontalAlignment="Center" Height="666" Margin="5,33,10,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="465">
-            <Button Name="buttonDayOfWeek" Background="{StaticResource PhoneTextBoxBrush}" Style="{StaticResource PickerBoxButton}"
-
-        Click="buttonDayOfWeek_Click" BorderThickness="0" Height="72" 
-        HorizontalAlignment="Left" Margin="10,126,0,0"  VerticalAlignment="Top" Width="438">
-                <StackPanel Orientation="Horizontal" Width="362">
-                    <TextBlock Margin="-17, 0, 0, 0" Foreground="{StaticResource PhoneTextBoxForegroundBrush}" 
-                            Text="{Binding}"  />
-                </StackPanel>
-            </Button>
-            <!--
             <TextBlock HorizontalAlignment="Left" Margin="41,134,0,0" TextWrapping="Wrap" Text="Shape" VerticalAlignment="Top" Width="170" Height="40" TextAlignment="Center" LineHeight="6" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="40,213,0,0" TextWrapping="Wrap" Text="Color" VerticalAlignment="Top" Width="170" TextAlignment="Center" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="40,302,0,0" TextWrapping="Wrap" Text="Character" VerticalAlignment="Top" Width="170" TextAlignment="Center" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="144,18,0,0" Grid.Row="1" TextWrapping="Wrap" Text="BUTTON PROPERTIES" VerticalAlignment="Top" Width="206"/>
-            <toolkit:ListPicker x:Name="shape_picker" Margin="224,114,1,207" RenderTransformOrigin="1.194,1.8"/>
-            <toolkit:ListPicker x:Name="color_picker" Margin="225,199,0,151" RenderTransformOrigin="1.194,1.8"/>
+            <toolkit:ListPicker x:Name="shape_picker" Margin="224,114,1,207" RenderTransformOrigin="1.194,1.8" />
+            <toolkit:ListPicker x:Name="color_picker" Margin="225,199,0,151" RenderTransformOrigin="1.194,1.8" />
             <TextBox x:Name="character" Margin="213,284,-13,314">
                 <TextBox.InputScope>
                     <InputScope>
@@ -50,7 +40,7 @@
                     </InputScope>
                 </TextBox.InputScope>
             </TextBox>
-            -->
+            
         </Grid>
     </Grid>
 

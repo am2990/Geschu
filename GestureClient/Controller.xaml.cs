@@ -222,14 +222,11 @@ namespace GestureClient
         }
         private void Save_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             this.save_profile();
             NavigationService.Navigate(new Uri("/UserProfile.xaml",UriKind.Relative));
-=======
             if ((profile_name.Text == this.default_profile_name) ||
                     (profile_name.Text.Trim().Length == 0))
                 MessageBox.Show("Enter a valid name for the profile");
->>>>>>> 1be8e313e4ffb1a26ecfbfa20f7d3ad6a2c50571
             //Do work for your application here.
         }
         private void addBtn_Click(object sender, RoutedEventArgs e)
