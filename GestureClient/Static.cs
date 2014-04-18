@@ -7,10 +7,10 @@ namespace GestureClient
 {
     class Static
     {
-        public static struct Shape_info
+        public struct Shape_info
         {
-            public static enum Type {rectangle, circle};
-            public static enum Color { red, green, blue };
+            public enum Type {rectangle, circle};
+            public enum Color { red, green, blue };
             public static string _char;
             public static Type _type;
             public static Color color;
