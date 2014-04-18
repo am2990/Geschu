@@ -120,7 +120,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-<<<<<<< HEAD
     <Page Include="Profile_hawx2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,8 +128,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-=======
->>>>>>> 81abf9813e2aba38f06ef190e1b79de64497a87b
     <Page Include="Profile_VLC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,10 +156,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="backimage.jpg" />
-<<<<<<< HEAD
-=======
     <Content Include="Images\Icon\appbar.save.rest.png" />
->>>>>>> 81abf9813e2aba38f06ef190e1b79de64497a87b
     <Content Include="Images\Icon\appbar.transport.play.rest.png" />
     <Content Include="Images\Icon\computer.png" />
     <Content Include="Images\Icon\add.png" />
