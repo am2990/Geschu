@@ -14,6 +14,8 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
+  
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent" Margin="0,62,0,-62">
         <Grid.RowDefinitions>
@@ -24,31 +26,34 @@
 
 
 
-        <Grid x:Name="properties_grid" HorizontalAlignment="Center" Height="535" Margin="5,10,10,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="465">
-            <TextBlock HorizontalAlignment="Left" Margin="40,88,0,0" TextWrapping="Wrap" Text="Shape" VerticalAlignment="Top" Width="170" Height="40" TextAlignment="Center" LineHeight="6" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="40,154,0,0" TextWrapping="Wrap" Text="Color" VerticalAlignment="Top" Width="170" TextAlignment="Center" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="Left" Margin="40,223,0,0" TextWrapping="Wrap" Text="Character" VerticalAlignment="Top" Width="170" TextAlignment="Center" FontWeight="Bold"/>
+        <Grid x:Name="properties_grid" HorizontalAlignment="Center" Height="666" Margin="5,33,10,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="465">
+            <Button Name="buttonDayOfWeek" Background="{StaticResource PhoneTextBoxBrush}" Style="{StaticResource PickerBoxButton}"
+
+        Click="buttonDayOfWeek_Click" BorderThickness="0" Height="72" 
+        HorizontalAlignment="Left" Margin="10,126,0,0"  VerticalAlignment="Top" Width="438">
+                <StackPanel Orientation="Horizontal" Width="362">
+                    <TextBlock Margin="-17, 0, 0, 0" Foreground="{StaticResource PhoneTextBoxForegroundBrush}" 
+                            Text="{Binding}"  />
+                </StackPanel>
+            </Button>
+            <!--
+            <TextBlock HorizontalAlignment="Left" Margin="41,134,0,0" TextWrapping="Wrap" Text="Shape" VerticalAlignment="Top" Width="170" Height="40" TextAlignment="Center" LineHeight="6" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="40,213,0,0" TextWrapping="Wrap" Text="Color" VerticalAlignment="Top" Width="170" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Margin="40,302,0,0" TextWrapping="Wrap" Text="Character" VerticalAlignment="Top" Width="170" TextAlignment="Center" FontWeight="Bold"/>
             <TextBlock HorizontalAlignment="Left" Margin="144,18,0,0" Grid.Row="1" TextWrapping="Wrap" Text="BUTTON PROPERTIES" VerticalAlignment="Top" Width="206"/>
-            <toolkit:ListPicker x:Name="shape_picker" Margin="225,74,0,400" RenderTransformOrigin="1.194,1.8"/>
-            <toolkit:ListPicker x:Name="color_picker" Margin="225,140,0,335" RenderTransformOrigin="1.194,1.8"/>
-            <TextBox x:Name="character" Margin="205,205,0,266">
+            <toolkit:ListPicker x:Name="shape_picker" Margin="224,114,1,207" RenderTransformOrigin="1.194,1.8"/>
+            <toolkit:ListPicker x:Name="color_picker" Margin="225,199,0,151" RenderTransformOrigin="1.194,1.8"/>
+            <TextBox x:Name="character" Margin="213,284,-13,314">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="Text" />
                     </InputScope>
                 </TextBox.InputScope>
             </TextBox>
+            -->
         </Grid>
     </Grid>
 
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Click="Add_Button"  IconUri="Images/Icon/appbar.save.rest.png" Text="Add" />
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Save Profile" Click="Save_Click" />
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
 
 
 </phone:PhoneApplicationPage>

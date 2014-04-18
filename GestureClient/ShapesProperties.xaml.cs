@@ -21,6 +21,7 @@ namespace GestureClient
 
         private void update_color_picker()
         {
+            
             color_picker.Items.Add("Red");
             color_picker.Items.Add("Green");
         }
@@ -43,6 +44,12 @@ namespace GestureClient
         {
             this.save_properties();
             NavigationService.Navigate(new Uri("/Controller.xaml?profileid=-1",UriKind.Relative));
+        }
+        private void Add_Button(object sender, System.EventArgs e)
+        {
+        }
+        private void Save_Click(object sender, System.EventArgs e)
+        {
         }
     }
 }
