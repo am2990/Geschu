@@ -83,12 +83,6 @@
     <Compile Include="Controller.xaml.cs">
       <DependentUpon>Controller.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Profile_hawx2.xaml.cs">
-      <DependentUpon>Profile_hawx2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Profile_PowerPoint.xaml.cs">
-      <DependentUpon>Profile_PowerPoint.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Profile_VLC.xaml.cs">
       <DependentUpon>Profile_VLC.xaml</DependentUpon>
     </Compile>
@@ -126,6 +120,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="Profile_hawx2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +129,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+>>>>>>> 81abf9813e2aba38f06ef190e1b79de64497a87b
     <Page Include="Profile_VLC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,12 +159,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="backimage.jpg" />
+<<<<<<< HEAD
+=======
+    <Content Include="Images\Icon\appbar.save.rest.png" />
+>>>>>>> 81abf9813e2aba38f06ef190e1b79de64497a87b
     <Content Include="Images\Icon\appbar.transport.play.rest.png" />
     <Content Include="Images\Icon\computer.png" />
     <Content Include="Images\Icon\add.png" />
     <Content Include="Images\Icon\go-back.png" />
     <Content Include="Images\Icon\jump ahead.png" />
-    <Content Include="Images\Icon\office-presentation.png" />
     <Content Include="Images\Icon\pause.png" />
     <Content Include="Images\Icon\play.png" />
     <Content Include="Images\Icon\refresh.png" />
