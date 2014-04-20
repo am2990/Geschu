@@ -54,7 +54,7 @@ namespace GestureClient
                     deviceList.RemoveAt(3);
                 }
                 deviceList.Add(item);
-                Database.add("devices", deviceList);
+                Database.add("device", deviceList);
             }
         }
 
@@ -80,8 +80,8 @@ namespace GestureClient
             Device Device = new Device();
             //Device.deviceType = "";
             //Device.deviceOS = "Android";
-            Device.deviceName = "My PC";
-            Device.deviceIP = "";
+            Device.deviceName = "Apurv PC";
+            Device.deviceIP = "192.168.48.21";
             Device.id = 3;
             NewDevices.Add(Device);
             devicesList.ItemsSource = NewDevices;
@@ -115,24 +115,18 @@ namespace GestureClient
                     }
                     string[] temp = device.Split(':');
                     Device d = new Device();
+                    string name = temp[0];
                     d.deviceName = temp[0];
                     d.deviceIP = temp[1];
                     d.devicePort = temp[2];
-                    d.id = i;
+
+                    d.id = name.GetHashCode();
                    // if (!onlineDevices.Contains(d))
                     //{
                         onlineDevices.Add(d);
                     //}
                     worker.ReportProgress(i * 10);
                 }
-            }
-        }
-
-        private void buttonCancel_Click(object sender, RoutedEventArgs e)
-        {
-            if (bw.WorkerSupportsCancellation == true)
-            {
-                bw.CancelAsync();
             }
         }
 
@@ -160,6 +154,11 @@ namespace GestureClient
             {
                 this.tbProgress.Text = "Done!";
             }
+        }
+
+        private void add_manually(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/AddDevice_Manual.xaml", UriKind.Relative));
         }
     }
 }

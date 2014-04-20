@@ -15,6 +15,17 @@ namespace GestureClient
         private const int maxDeviceSaved = 10;
         static List<Device> devices =  new List<Device>();
 
+        public Device()
+        {
+
+        }
+
+        public Device(int id, string deviceName, string deviceIP)
+        {
+            this.id = id; this.deviceName = deviceName; this.deviceIP = deviceIP;
+        }
+
+
         private Device get(int id)
         {
             foreach (Device device in getAll())

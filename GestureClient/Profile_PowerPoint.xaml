@@ -47,22 +47,6 @@
                 </Button.Background>
             </Button>
 
-            <!--<Button x:Name="buttonNormal"  Click="buttonNormal_Click" Width="160"  Height ="136" 
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-4,0,300,10" BorderThickness="5" 
-                     ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="Alt:87:76">
-                <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/NormalScreen.png"/>
-                </Button.Background>
-            </Button>
-
-            <Button x:Name="buttonSlideSorter" Click="buttonSlideSorter_Click" Width="164"  Height ="136" 
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="148,0,144,10" BorderThickness="5"
-                    ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="18:87:73">
-                <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/SlideSorter.png"/>
-                </Button.Background>
-            </Button>-->
-
             <Button x:Name="buttonSlideShow" Width="224"  Height ="148" 
                     HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,0,222,274" BorderThickness="5"
             	    ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="116">

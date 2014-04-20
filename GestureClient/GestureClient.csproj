@@ -69,6 +69,9 @@
     <Compile Include="AddDevice.xaml.cs">
       <DependentUpon>AddDevice.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddDevice_Manual.xaml.cs">
+      <DependentUpon>AddDevice_Manual.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,12 @@
     <Compile Include="Profile.cs" />
     <Compile Include="Controller.xaml.cs">
       <DependentUpon>Controller.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Profile_hawx2.xaml.cs">
+      <DependentUpon>Profile_hawx2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Profile_PowerPoint.xaml.cs">
+      <DependentUpon>Profile_PowerPoint.xaml</DependentUpon>
     </Compile>
     <Compile Include="Profile_VLC.xaml.cs">
       <DependentUpon>Profile_VLC.xaml</DependentUpon>
@@ -105,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="AddDevice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDevice_Manual.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,16 +169,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="backimage.jpg" />
-    <Content Include="Images\Icon\appbar.save.rest.png" />
     <Content Include="Images\Icon\appbar.transport.play.rest.png" />
     <Content Include="Images\Icon\computer.png" />
     <Content Include="Images\Icon\add.png" />
     <Content Include="Images\Icon\go-back.png" />
     <Content Include="Images\Icon\jump ahead.png" />
+    <Content Include="Images\Icon\office-presentation.png" />
     <Content Include="Images\Icon\pause.png" />
     <Content Include="Images\Icon\play.png" />
     <Content Include="Images\Icon\refresh.png" />
-    <Content Include="Images\Icon\SlideShow.png" />
+    <Content Include="Images\Icon\save.png" />
     <Content Include="Images\Icon\transport.ff.png" />
     <Content Include="Images\Icon\transport.pause.png" />
     <Content Include="Images\Icon\transport.rew.png" />
