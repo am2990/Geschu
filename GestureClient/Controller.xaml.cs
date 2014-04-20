@@ -46,7 +46,7 @@ namespace GestureClient
                 int id = Convert.ToInt32(msg);
                 this.load_profile();
             }
-            //this.activateBlinker();  
+            
         }
 
         void activateBlinker()
@@ -105,7 +105,6 @@ namespace GestureClient
             Rectangle rect = sender as Rectangle;
             rect.Fill = stationaryBrush;
         }
-
         
         private void GestureListener_DragDelta(object sender, DragDeltaGestureEventArgs e)
         {
@@ -117,11 +116,11 @@ namespace GestureClient
 
         private void GestureListener_Tap(object sender, Microsoft.Phone.Controls.GestureEventArgs e)
         {
-            (sender as Rectangle).Fill = new SolidColorBrush(Colors.White);
+            //(sender as Rectangle).Fill = new SolidColorBrush(Colors.White);
+            Static._shape = sender as Shape;
             this.update_profile();
             this.save_profile();
-            this.list_box.Items.Remove(e);
-            NavigationService.Navigate(new Uri("/ShapesProperties.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ShapesProperties.xaml?shapeindex=" +  (sender as Shape).GetHashCode().ToString() + "&profileid=0&deviceid=-1", UriKind.Relative));
         }
 
         private Shape set_shape_transform(Shape shape)
@@ -144,7 +143,7 @@ namespace GestureClient
 
         private Shape set_shape_property(Shape shape, int row = 0, int column = 0)
         {    
-            shape.Fill = new SolidColorBrush(Colors.Brown);
+            shape.Fill = new SolidColorBrush(Colors.Red);
             shape.Height = 200;
             shape.Width = 200;
             shape.SetValue(Grid.RowProperty, row);
@@ -158,7 +157,7 @@ namespace GestureClient
             {
                 controller_profile.add_Shapes(addition_shape,
                     addition_shape.RenderTransform,
-                    'A');
+                    "A");
             }
         }
 
@@ -166,32 +165,42 @@ namespace GestureClient
         {
             controller_profile.save();
         }
-
+        
         private Shape shape_clone(Shapes original)
         {
-            Shape clone_shape = new Rectangle();
+
+            Shape clone_shape = null;
+            if (original.get_type() == Shapes.ShapeType.Rectangle)
+                clone_shape = new Rectangle();
+            else
+                clone_shape = new Ellipse();
             Shape original_shape = original.load_shape();
             clone_shape.Fill = original_shape.Fill;
             clone_shape.Height = original_shape.Height;
             clone_shape.Width = original_shape.Width;
-            clone_shape.SetValue(Grid.RowProperty, (int) original.get_row());
-            clone_shape.SetValue(Grid.ColumnProperty, (int) original.get_column());
+            //clone_shape.SetValue(Grid.RowProperty, (int) original.get_row());
+            //clone_shape.SetValue(Grid.ColumnProperty, (int) original.get_column());
             clone_shape = set_shape_transform(clone_shape);
             clone_shape = set_shape_listener(clone_shape);
             clone_shape.RenderTransform = original.transform;
-;
             return clone_shape;
         }
 
         private void load_profile()
         {
             this.controller_profile = Profile.get_profile(0, -1);
+            this.controller_profile.clear_commits();            
             if (this.controller_profile == null)
                 return;
+            Shape clone_shape;
             foreach (Shapes profile_shapes in this.controller_profile.get_profile_shapes())
             {
-                list_box.Items.Add(shape_clone(profile_shapes));
+                clone_shape = shape_clone(profile_shapes);
+                list_box.Items.Add(clone_shape);
+                this.controller_profile.commit_Shapes(clone_shape, clone_shape.RenderTransform, "A");
             }
+            this.controller_profile.include_commits();
+            
         }
 
         private void Add_Button(object sender, System.EventArgs e)
@@ -208,18 +217,20 @@ namespace GestureClient
             addition_shape = set_shape_property(addition_shape);
             addition_shape = set_shape_transform(addition_shape);
             addition_shape = set_shape_listener(addition_shape);
-            
 
-          
-        /*
-            rectangle.ManipulationStarted +=
+
+
+
+            /*addition_shape.ManipulationStarted +=
                 new EventHandler<ManipulationStartedEventArgs>(Rectangle_ManipulationStarted);
-            rectangle.ManipulationDelta +=
+            addition_shape.ManipulationDelta +=
                 new EventHandler<ManipulationDeltaEventArgs>(Rectangle_ManipulationDelta);
-            rectangle.ManipulationCompleted +=
-                new EventHandler<ManipulationCompletedEventArgs>(Rectangle_ManipulationCompleted); */
+            addition_shape.ManipulationCompleted +=
+                new EventHandler<ManipulationCompletedEventArgs>(Rectangle_ManipulationCompleted); 
+             * */
             list_box.Items.Add(addition_shape);
         }
+        
         private void Save_Click(object sender, EventArgs e)
         {
             this.save_profile();
@@ -229,29 +240,8 @@ namespace GestureClient
                 MessageBox.Show("Enter a valid name for the profile");
             //Do work for your application here.
         }
-        private void addBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Button newButton = new Button();
-            newButton.Height = 75;
-            newButton.Width = 250;
-            
-            newButton.Foreground = new SolidColorBrush(Colors.Green);
-            newButton.Content = "Dynamically added";
-            newButton.Click += new RoutedEventHandler(newButton_Click);
-
-            ContentPanel.Children.Add(newButton);
-        }
-
-        void newButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Hello phone!");
-        }
-
-        void save_profile_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Pressed!");
-        }
-
+        
+      
         public TransformGroup _addition_shape_transform { get; set; }
 
         public GestureListener shape_gesture { get; set; }

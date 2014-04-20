@@ -12,16 +12,31 @@ namespace GestureClient
          int id ;
          public string uri { get; set; }
 
-         ActionButton button;
-         int priority;
+         
          Dictionary<Shape, List<double>> shape_map = null;
-         List<Shapes> profile_shapes;
+         Dictionary<int,Shapes> profile_shapes = new Dictionary<int,Shapes>();
 
-        public void add_Shapes(Shape shape, Transform pos , char value)
+        public void add_Shapes(Shape shape, Transform pos , string value)
         {
-            profile_shapes.Add(new 
+            profile_shapes.Add(shape.GetHashCode() ,new 
                 Shapes(shape, pos, value));
             //this.shape_map.Add(shape,new List<double>(new double[]{pos.X, pos.Y}));
+        }
+        public void commit_Shapes(Shape shape, Transform pos, string value)
+        {
+            this.commit_shapes.Add(shape.GetHashCode(), new
+                Shapes(shape, pos, value));
+            //this.shape_map.Add(shape,new List<double>(new double[]{pos.X, pos.Y}));
+        }
+
+        public void clear_commits()
+        {
+            this.commit_shapes = new Dictionary<int, Shapes>();
+        }
+
+        public void include_commits()
+        {
+            this.profile_shapes = this.commit_shapes;
         }
 
         public void update_Shape(Shape shape, Point pos, char value)
@@ -31,12 +46,24 @@ namespace GestureClient
         }
         public List<Shapes> get_profile_shapes()
         {
-            return this.profile_shapes;
+            List<Shapes> items = new List<Shapes>();
+            foreach(Shapes value in this.profile_shapes.Values)
+                items.Add(value);
+            return items;
+        }
+        public Shapes get_profile_shape(int index)
+        {
+            return this.profile_shapes[index];
+        }
+        public void update_shape(int index, Shapes shape)
+        {
+            this.profile_shapes.Remove(index);
+            this.profile_shapes[shape.GetHashCode()] = shape;
         }
         public Profile(string name, int owner_id, int id=-1)
         {
             this.shape_map = new Dictionary<Shape, List<double>>();
-            this.profile_shapes = new List<Shapes>();
+            this.profile_shapes = new Dictionary<int,Shapes>();
             this.name = name;
             this.ownerId = owner_id;
             this.id = id;
@@ -58,6 +85,14 @@ namespace GestureClient
             else
             {
                 profile_settings = profile_obj as List<Profile>;
+                foreach (Profile prof in profile_settings)
+                {
+                    if (prof.id == this.id)
+                    {
+                        profile_settings.Remove(prof);
+                        break;
+                    }
+                }
                 profile_settings.Add(this);
                 Database.add(this.ownerId.ToString(), profile_settings);
             }
@@ -84,5 +119,7 @@ namespace GestureClient
 
         public void Remove() { }
 
+
+        public Dictionary<int, Shapes> commit_shapes { get; set; }
     }
 }
