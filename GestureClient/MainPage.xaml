@@ -25,9 +25,9 @@
             </controls:Panorama.Background>
 
             <!--Panorama item one-->
-            <controls:PanoramaItem Header="My Devices">
+            <controls:PanoramaItem Header="Recent Devices">
                 <!--Double line list with text wrapping-->
-                <ListBox x:Name="devicesList" Margin="0,0,-12,0">
+                <ListBox x:Name="devicesList" SelectionChanged="DevicesList_SelectionChanged" Margin="0,0,-12,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
@@ -35,14 +35,32 @@
                                 <Image Height="100" Width="100" Source="Images/Icon/computer.png" Margin="12,0,9,0"/>
                                 <StackPanel Width="311">
                                     <TextBlock Text="{Binding deviceName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding deviceOS}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <TextBlock Text="{Binding deviceIP}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </controls:PanoramaItem>
-
+            
+            <controls:PanoramaItem Header="All Devices">
+                <ListBox x:Name="AllDeviceList" Margin="0,0,-12,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <!--Replace rectangle with image-->
+                                <Image Height="100" Width="100" Source="Images/Icon/computer.png" Margin="12,0,9,0"/>
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding deviceName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                    <TextBlock Text="{Binding deviceIP}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    
+                </ListBox>
+                
+            </controls:PanoramaItem>
             
             
       
@@ -56,9 +74,9 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Click="Add_Click"  IconUri="Images/Icon/add.png" Text="Add Device" />
+            <shell:ApplicationBarIconButton Click="Add_Click"  IconUri="Images/Icon/add.png" Text="Add" />
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Clear Device List"/>
+                <shell:ApplicationBarMenuItem Click="ClearDevices"  Text="Clear Device List"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

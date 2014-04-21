@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="GestureClient.AddDevice"
+    x:Class="GestureClient.AddDevice_Manual"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -28,42 +28,16 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBox x:Name ="DeviceName" HorizontalAlignment="Left" Height="72" Margin="2,39,-2,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" AcceptsReturn="True" GotFocus="Remove_Text" Text="Add Device Name"/>
+            <TextBlock HorizontalAlignment="Left" Margin="20,-1,0,0" TextWrapping="Wrap" Text="Device Name" VerticalAlignment="Top" Height="45" Width="185" FontSize="30"/>
+            <TextBox x:Name ="DeviceIP" HorizontalAlignment="Left" Height="72" Margin="2,155,-2,0" TextWrapping="Wrap" Text="Visible on Running Server" VerticalAlignment="Top" Width="456" AcceptsReturn="True" GotFocus="Remove_Text" />
+            <TextBlock HorizontalAlignment="Left" Margin="20,115,0,0" TextWrapping="Wrap" Text="Device IP Address" VerticalAlignment="Top" Height="45" Width="273" FontSize="30"/>
 
         </Grid>
-
-        <ListBox x:Name="devicesList" Margin="12,10,12,66" SelectionChanged="DevicesList_SelectionChanged" Grid.Row="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
-                        <!--Replace rectangle with image-->
-                        <Image Height="100" Width="100" Source="Images/Icon/computer.png" Margin="12,0,9,0"/>
-                        <StackPanel Width="311">
-                            <TextBlock Text="{Binding deviceName}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                            <TextBlock Text="{Binding deviceIP}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                        </StackPanel>
-                        
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Margin="0,348,0,10" Grid.Row="1">
-            <StackPanel Orientation="Horizontal" 
-                        HorizontalAlignment="Left" VerticalAlignment="Top" 
-                        Margin="10" />
-            <StackPanel Margin="10,50,0,0" Orientation="Horizontal">
-                <TextBlock Text="Progress: " />
-                <TextBlock x:Name="tbProgress" />
-            </StackPanel>
-        </StackPanel>
     </Grid>
-
-
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Click="Refresh_Click"  IconUri="Images/Icon/refresh.png" Text="Refresh" />
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Click="add_manually" Text="Add manually"/>
-            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton Click="Save_Device"  IconUri="Images/Icon/save.png" Text="Save" />          
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

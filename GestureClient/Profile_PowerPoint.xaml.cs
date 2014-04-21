@@ -16,12 +16,45 @@ namespace GestureClient
         private string serverName = "192.168.48.21"; // getServerName();
         private int portNumber = 12424; // getPortNumber();
         private string data;
+        private string deviceid;
 
         Connections conn = new Connections();
 
         public Profile_PowerPoint()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            InitializeComponent();
+            string id;
+            if (NavigationContext.QueryString.TryGetValue("Id", out id))
+            {
+                deviceid = id;
+                List<Device> devices = (List<Device>)Database.get("device");
+                foreach (Device d in devices)
+                {
+                    if ((d.id.ToString()) == id)
+                    {
+                        serverName = d.deviceIP;
+                        break;
+                    }
+                }
+
+
+            }
+            else
+            {
+                //show user an error messgae
+            }
+        }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            String uri = "/UserProfile.xaml?" + "Id=" + deviceid;
+            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 
         private void OnMouseLeftDown(object sender, MouseButtonEventArgs e)

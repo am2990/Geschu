@@ -2,35 +2,39 @@
 using System.Collections.Generic;
 using System.Windows;
 using Microsoft.Phone.Controls;
+using System.Windows.Navigation;
 
 
 namespace GestureClient
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        public MainPage()
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             InitializeComponent();
             this.LoadData();
         }
+        
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                while (NavigationService.RemoveBackEntry() != null)
+                {
+                    NavigationService.RemoveBackEntry();
+                }
+            }
+        }
 
         private void LoadData()
         {
-            List<Device> onlineDevices = new List<Device>();
-            Device device = new Device();
-            device.id = 0;
-            device.deviceName = "Apurv di lappy";
-            //device.deviceOS = "Windows 8";
-            //device.deviceType = "Computer";
-            onlineDevices.Add(device);
-            Device device_1 = new Device();
-            device_1.id = 1;
-            device_1.deviceName = "Apurv di lappy";
-            //device_1.deviceOS = "Windows 8";
-            //device_1.deviceType = "Computer";
-            onlineDevices.Add(device_1);
-            //devicesList.ItemsSource = onlineDevices;
-            devicesList.ItemsSource = Device.getAll();
+            List<Device> recentDevices = (List<Device>)Database.get("device");
+            devicesList.ItemsSource = recentDevices;
 
 
         }
@@ -47,6 +51,20 @@ namespace GestureClient
         private void Add_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/AddDevice.xaml", UriKind.Relative));
+        }
+
+        private void ClearDevices(object sender, EventArgs e)
+        {
+            Database.remove("device");
+            NavigationService.Navigate(new Uri(string.Format(NavigationService.Source +
+                                    "?Refresh=true&random={0}", Guid.NewGuid()), UriKind.Relative));        
+        }
+
+        private void DevicesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Device item = (Device)devicesList.SelectedItem;
+            String uri = "/UserProfile.xaml?" + "Id=" + item.id;
+            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 
 

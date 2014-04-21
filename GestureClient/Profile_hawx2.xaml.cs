@@ -22,6 +22,7 @@ namespace GestureClient
         private string serverName = "192.168.0.154";
         private int portNumber = 12424;
         private string data;
+        private string deviceid;
 
         private bool setval = false;
         float _roll = 0;
@@ -46,6 +47,24 @@ namespace GestureClient
                 return;
             }
 
+            if (NavigationContext.QueryString.TryGetValue("Id", out deviceid))
+            {
+                List<Device> devices = (List<Device>)Database.get("device");
+                foreach (Device d in devices)
+                {
+                    if ((d.id.ToString()) == deviceid)
+                    {
+                        serverName = d.deviceIP;
+                        break;
+                    }
+                }
+
+
+            }
+            else
+            {
+                //show user an error messgae
+            }
             // If the Motion object is null, initialize it and add a CurrentValueChanged
             // event handler.
             if (motion == null)
@@ -66,7 +85,12 @@ namespace GestureClient
             }
         }
 
-       
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            String uri = "/UserProfile.xaml?" + "Id=" + deviceid;
+            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+        }
+
         void motion_CurrentValueChanged(object sender, SensorReadingEventArgs<MotionReading> e)
         {
             // This event arrives on a background thread. Use BeginInvoke to call

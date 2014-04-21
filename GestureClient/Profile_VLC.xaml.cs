@@ -13,17 +13,51 @@ namespace GestureClient
 {
     public partial class Profile_VLC : PhoneApplicationPage
     {
-        private string serverName = "192.168.0.154";
+        private string serverName = "";
         private int portNumber = 12424;
         private string data;
+        private string deviceid;
 
         Connections sendData = new Connections();
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            InitializeComponent();
+            string id;
+            if (NavigationContext.QueryString.TryGetValue("Id", out id))
+            {
+                deviceid = id;
+                List<Device> devices = (List<Device>)Database.get("device");
+                foreach (Device d in devices)
+                {
+                    if ((d.id.ToString()) == id)
+                    {
+                        serverName = d.deviceIP;
+                        break;
+                    }
+                }
+
+                
+            }
+            else
+            {
+                //show user an error messgae
+            }
+        }
+
 
         public Profile_VLC()
         {
             InitializeComponent();
         }
-        
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            String uri = "/UserProfile.xaml?" + "Id=" + deviceid;
+            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+        }
+
         private void OnMouseLeftDown(object sender, MouseButtonEventArgs e)
         {
             var button = sender as Button;
@@ -57,7 +91,7 @@ namespace GestureClient
         {
             var button = sender as Button;
             var content = button.Tag;
-            data = DateTime.Now.Millisecond.ToString() + ":" + content;
+            data = (100+DateTime.Now.Millisecond).ToString() + ":" + content;
             int c = 0;
             while (c < 10)
             {

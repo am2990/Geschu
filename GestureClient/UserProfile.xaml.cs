@@ -25,6 +25,11 @@ namespace GestureClient
             }
         }
 
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
+
         public UserProfile()
         {
             InitializeComponent();
@@ -52,7 +57,8 @@ namespace GestureClient
         private void profilesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             Profile selected = profilesList.SelectedItem as Profile;
-            string navigateTo = selected.uri as string; 
+            string navigateTo = selected.uri + "?Id=" + selected.ownerId as string;
+          
 
             //String uri = "/Profile_VLC.xaml";
             NavigationService.Navigate(new Uri(navigateTo, UriKind.Relative));
