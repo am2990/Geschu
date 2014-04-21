@@ -20,12 +20,12 @@
 
         <!--Panorama control-->
         <controls:Panorama Title="Remotely">
-            <controls:Panorama.Background>
+            <!--<controls:Panorama.Background>
                 <ImageBrush ImageSource="backimage.jpg"/>
-            </controls:Panorama.Background>
+            </controls:Panorama.Background>-->
 
             <!--Panorama item one-->
-            <controls:PanoramaItem Header="Recent Devices">
+            <controls:PanoramaItem Header="Recent Devices" Foreground="{StaticResource PhoneAccentBrush}">
                 <!--Double line list with text wrapping-->
                 <ListBox x:Name="devicesList" SelectionChanged="DevicesList_SelectionChanged" Margin="0,0,-12,0">
                     <ListBox.ItemTemplate>
@@ -42,8 +42,8 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </controls:PanoramaItem>
-            
-            <controls:PanoramaItem Header="All Devices">
+
+            <controls:PanoramaItem Header="All Devices" Foreground="{StaticResource PhoneAccentBrush}">
                 <ListBox x:Name="AllDeviceList" Margin="0,0,-12,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -66,7 +66,7 @@
       
             <!--Panorama item two-->
             <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
-            <controls:PanoramaItem Header="About">
+            <controls:PanoramaItem Header="About"  Foreground="{StaticResource PhoneAccentBrush}">
                 <!--Double line list with image placeholder and text wrapping-->
             </controls:PanoramaItem>
         </controls:Panorama>

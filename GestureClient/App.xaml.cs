@@ -55,6 +55,11 @@ namespace GestureClient
             // Phone-specific initialization
             InitializePhoneApplication();
 
+            if ((Visibility)Resources["PhoneLightThemeVisibility"] == Visibility.Visible)
+                ThemeManager.ToLightTheme();
+            else
+                ThemeManager.ToDarkTheme();
+
             // Show graphics profiling information while debugging.
             if (System.Diagnostics.Debugger.IsAttached)
             {
