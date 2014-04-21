@@ -19,7 +19,7 @@ namespace GestureClient
     {
         Motion motion;
         
-        private string serverName = "192.168.0.154";
+        private string serverName = "";
         private int portNumber = 12424;
         private string data;
         private string deviceid;
@@ -40,12 +40,6 @@ namespace GestureClient
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            // Check to see if the Motion API is supported on the device.
-            if (!Motion.IsSupported)
-            {
-                MessageBox.Show("the Motion API is not supported on this device.");
-                return;
-            }
 
             if (NavigationContext.QueryString.TryGetValue("Id", out deviceid))
             {
@@ -65,6 +59,15 @@ namespace GestureClient
             {
                 //show user an error messgae
             }
+
+            // Check to see if the Motion API is supported on the device.
+            if (!Motion.IsSupported)
+            {
+                MessageBox.Show("the Motion API is not supported on this device.");
+                return;
+            }
+
+           
             // If the Motion object is null, initialize it and add a CurrentValueChanged
             // event handler.
             if (motion == null)
@@ -83,10 +86,17 @@ namespace GestureClient
             {
                 MessageBox.Show("unable to start the Motion API.");
             }
+            this.DisableLocking();
+        }
+
+        private void DisableLocking()
+        {
+            PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
         }
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
+            motion.Stop();
             String uri = "/UserProfile.xaml?" + "Id=" + deviceid;
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
@@ -390,7 +400,6 @@ namespace GestureClient
                 c++;
             }
         }
-
         
     }
 }

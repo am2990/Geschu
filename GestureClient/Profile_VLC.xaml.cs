@@ -44,9 +44,13 @@ namespace GestureClient
             {
                 //show user an error messgae
             }
+            this.DisableLocking();
         }
 
-
+        private void DisableLocking()
+        {
+            PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
+        }
         public Profile_VLC()
         {
             InitializeComponent();
@@ -62,7 +66,7 @@ namespace GestureClient
         {
             var button = sender as Button;
             var content = button.Tag;
-            data = "1:" + content;
+            data = "9:" + content;
             int c = 0;
             while ( c < 10 )
             {
@@ -77,7 +81,7 @@ namespace GestureClient
         {
             var button = sender as Button;
             var content = button.Tag;
-            data = "0:" + content;
+            data = "8:" + content;
             int c = 0;
             while (c < 10)
             {

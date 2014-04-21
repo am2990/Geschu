@@ -38,15 +38,18 @@ namespace GestureClient
         private void LoadProfiles(int owner_id)
         {
             List<Profile> UserProfile = new List<Profile>();
-            Profile profile = new Profile("VLC Profile", owner_id, 0);
+            Profile profile = new Profile("VLC Profile", owner_id, 0, "Images/Icon/appbar.cone.png");
             profile.uri = "/Profile_VLC.xaml";
             Profile profile_hawx = new Profile("HAWX Profile", owner_id, 0);
             profile_hawx.uri = "/Profile_hawx2.xaml";
             Profile profile_ppt = new Profile("PPT Profile", owner_id, 0);
             profile_ppt.uri = "/Profile_PowerPoint.xaml";
+            Profile lego_profile = new Profile("LEGO Racers", owner_id, 0, "Images/Icon/legoracer.png");
+            lego_profile.uri = "/Profile_Lego.xaml";
             UserProfile.Add(profile);
             UserProfile.Add(profile_hawx);
             UserProfile.Add(profile_ppt);
+            UserProfile.Add(lego_profile);
             foreach (Profile profilep in Profile.getAllProfiles(owner_id))
             {
                 UserProfile.Add(profilep);

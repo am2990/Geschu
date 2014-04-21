@@ -49,6 +49,12 @@ namespace GestureClient
             {
                 //show user an error messgae
             }
+            this.DisableLocking();
+        }
+
+        private void DisableLocking()
+        {
+            PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
         }
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
@@ -61,7 +67,7 @@ namespace GestureClient
         {
             var button = sender as Button;
             var content = button.Tag;
-            data = "1:" + content;
+            data = "9:" + content;
             int c = 0;
             while (c < 10)
             {
@@ -75,7 +81,7 @@ namespace GestureClient
         {
             var button = sender as Button;
             var content = button.Tag;
-            data = "0:" + content;
+            data = "8:" + content;
             int c = 0;
             while (c < 10)
             {

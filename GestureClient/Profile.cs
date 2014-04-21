@@ -12,8 +12,8 @@ namespace GestureClient
          int id ;
          public string uri { get; set; }
 
-         ActionButton button;
-         int priority;
+         public string image_uri { get; set; }
+
          Dictionary<Shape, List<double>> shape_map = null;
          List<Shapes> profile_shapes;
 
@@ -33,13 +33,14 @@ namespace GestureClient
         {
             return this.profile_shapes;
         }
-        public Profile(string name, int owner_id, int id=-1)
+        public Profile(string name, int owner_id, int id = -1, string image_uri = "Images/Icon/computer.png")
         {
             this.shape_map = new Dictionary<Shape, List<double>>();
             this.profile_shapes = new List<Shapes>();
             this.name = name;
             this.ownerId = owner_id;
             this.id = id;
+            this.image_uri = image_uri;
         }
 
        
