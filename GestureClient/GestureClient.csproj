@@ -52,7 +52,7 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
-      <HintPath>..\..\..\Visual Studio 2012\Projects\num\packages\WPtoolkit.4.2013.08.16\lib\sl3-wp\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="Microsoft.Xna.Framework" />
@@ -66,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionButton.cs" />
+    <Compile Include="ActiveProfile.xaml.cs">
+      <DependentUpon>ActiveProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddDevice.xaml.cs">
       <DependentUpon>AddDevice.xaml</DependentUpon>
     </Compile>
@@ -114,6 +117,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="ActiveProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddDevice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
