@@ -15,10 +15,10 @@ namespace GestureClient
         Brush color;
         double row, column;
         double width, height;
-        char value;
+        string value;
         public Transform transform;
         
-        public Shapes(Shape shape , double pos_x, double pos_y, char value ) 
+        public Shapes(Shape shape , double pos_x, double pos_y, string value ) 
         {
             this.shape = shape;
             this.color = shape.Fill;
@@ -30,7 +30,7 @@ namespace GestureClient
             this.type = (shape is Rectangle) ? ShapeType.Rectangle : ShapeType.Circle;
         }
 
-        public Shapes(Shape shape,Transform transform, char value)
+        public Shapes(Shape shape,Transform transform, string value)
         {
             this.shape = shape;
             this.color = shape.Fill;
