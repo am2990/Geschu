@@ -170,16 +170,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Content Include="ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Background.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="backimage.jpg" />
     <Content Include="Images\Icon\appbar.cone.png" />
-=======
     <Content Include="Images\Icon\appbar.control.fastforward.png" />
     <Content Include="Images\Icon\appbar.control.pause.png" />
     <Content Include="Images\Icon\appbar.control.play.png" />
@@ -187,16 +178,17 @@
     <Content Include="Images\Icon\appbar.sound.1.png" />
     <Content Include="Images\Icon\appbar.sound.3.png" />
     <Content Include="Images\Icon\appbar.sound.mute.png" />
->>>>>>> cf77afef3fc358d7a7bd1082ec885cdaf1c24de2
     <Content Include="Images\Icon\appbar.transport.play.rest.png" />
     <Content Include="Images\Icon\computer.png" />
     <Content Include="Images\Icon\add.png" />
     <Content Include="Images\Icon\go-back.png" />
+    <Content Include="Images\Icon\hawx.jpg" />
     <Content Include="Images\Icon\jump ahead.png" />
     <Content Include="Images\Icon\legoracer.png" />
     <Content Include="Images\Icon\office-presentation.png" />
     <Content Include="Images\Icon\pause.png" />
     <Content Include="Images\Icon\play.png" />
+    <Content Include="Images\Icon\ppt.png" />
     <Content Include="Images\Icon\refresh.png" />
     <Content Include="Images\Icon\save.png" />
     <Content Include="Images\Icon\transport.ff.png" />

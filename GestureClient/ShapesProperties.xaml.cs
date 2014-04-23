@@ -58,7 +58,6 @@ namespace GestureClient
 
         private void getShape(int shapeIndex)
         {
-<<<<<<< HEAD
             this.shape = this.connectedProfile.get_profile_shape(shapeIndex);
         }
 
@@ -66,11 +65,9 @@ namespace GestureClient
         { 
             color_picker.Items.Add("Red");
             color_picker.Items.Add("Green");
-=======
             
             //color_picker.Items.Add("Red");
             //color_picker.Items.Add("Green");
->>>>>>> 41188321e277f954e53e97307dabda24ad3e1894
         }
 
         private void update_shape_picker()

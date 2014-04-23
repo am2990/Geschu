@@ -12,12 +12,10 @@ namespace GestureClient
          int id ;
          public string uri { get; set; }
 
-<<<<<<< HEAD
+
          public string image_uri { get; set; }
 
-=======
-         
->>>>>>> cf77afef3fc358d7a7bd1082ec885cdaf1c24de2
+
          Dictionary<Shape, List<double>> shape_map = null;
          Dictionary<int,Shapes> profile_shapes = new Dictionary<int,Shapes>();
 

@@ -40,9 +40,9 @@ namespace GestureClient
             List<Profile> UserProfile = new List<Profile>();
             Profile profile = new Profile("VLC Profile", owner_id, 0, "Images/Icon/appbar.cone.png");
             profile.uri = "/Profile_VLC.xaml";
-            Profile profile_hawx = new Profile("HAWX Profile", owner_id, 0);
+            Profile profile_hawx = new Profile("HAWX Controller", owner_id, 0);
             profile_hawx.uri = "/Profile_hawx2.xaml";
-            Profile profile_ppt = new Profile("PPT Profile", owner_id, 0);
+            Profile profile_ppt = new Profile("PPT Profile", owner_id, 0, "Images/Icon/ppt.png");
             profile_ppt.uri = "/Profile_PowerPoint.xaml";
             Profile lego_profile = new Profile("LEGO Racers", owner_id, 0, "Images/Icon/legoracer.png");
             lego_profile.uri = "/Profile_Lego.xaml";
