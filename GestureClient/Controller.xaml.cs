@@ -159,10 +159,13 @@ namespace GestureClient
                     addition_shape.RenderTransform,
                     "A");
             }
+            addition_shape = null;
         }
 
         private void save_profile() 
         {
+            if (addition_shape != null)
+                this.update_profile();
             controller_profile.save();
         }
         

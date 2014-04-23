@@ -65,15 +65,12 @@ namespace GestureClient
         { 
             color_picker.Items.Add("Red");
             color_picker.Items.Add("Green");
-            
-            //color_picker.Items.Add("Red");
-            //color_picker.Items.Add("Green");
         }
 
         private void update_shape_picker()
         {
-            //shape_picker.Items.Add("Circle");
-            //shape_picker.Items.Add("Rectangle");
+            shape_picker.Items.Add("Circle");
+            shape_picker.Items.Add("Rectangle");
         }
 
         private void shapeGotFocus(Object sender, EventArgs e)

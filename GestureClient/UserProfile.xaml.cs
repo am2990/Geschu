@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Phone.Controls;
 using System.Windows.Navigation;
 using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace GestureClient
 {
@@ -57,15 +58,24 @@ namespace GestureClient
             profilesList.ItemsSource = UserProfile;
         }
 
+
         private void profilesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             Profile selected = profilesList.SelectedItem as Profile;
-            string navigateTo = selected.uri + "?Id=" + selected.ownerId as string;
-          
-
-            //String uri = "/Profile_VLC.xaml";
-            NavigationService.Navigate(new Uri(navigateTo, UriKind.Relative));
-        }
+            if (profilesList.SelectedIndex > 2)
+            {
+                // it is a dynamic page; redirect to ActiveProfile.xml
+                NavigationService.Navigate(new Uri(
+                    "/ActiveProfile.xaml?profileid=" + selected.get_profile_id().ToString()
+                    + "&ownerid=" + selected.get_owner_id().ToString(), UriKind.Relative));
+            }
+            else
+            {
+                string navigateTo = selected.uri + "?Id=" + selected.ownerId as string;
+                //String uri = "/Profile_VLC.xaml";
+                NavigationService.Navigate(new Uri(navigateTo, UriKind.Relative));
+            }
+            }
 
         private void Add_Profile(object sender, EventArgs e)
         {

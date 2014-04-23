@@ -73,8 +73,15 @@ namespace GestureClient
             this.image_uri = image_uri;
         }
 
-       
+       public int get_profile_id()
+       {
+           return this.id;
+       }
 
+        public int get_owner_id()
+        {
+            return this.ownerId;
+        }
         public void save()
         {
             List<Profile> profile_settings = null;
