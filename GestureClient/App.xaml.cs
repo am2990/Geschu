@@ -137,7 +137,7 @@ namespace GestureClient
         // Avoid double-initialization
         private bool phoneApplicationInitialized = false;
 
-        // Do not add any additional code to this method
+        // Do not Add any additional code to this method
         private void InitializePhoneApplication()
         {
             if (phoneApplicationInitialized)
@@ -155,7 +155,7 @@ namespace GestureClient
             phoneApplicationInitialized = true;
         }
 
-        // Do not add any additional code to this method
+        // Do not Add any additional code to this method
         private void CompleteInitializePhoneApplication(object sender, NavigationEventArgs e)
         {
             // Set the root visual to allow the application to render

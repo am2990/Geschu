@@ -31,7 +31,7 @@
 
         </Grid>
 
-        <ListBox x:Name="devicesList" Margin="12,10,12,66" SelectionChanged="DevicesList_SelectionChanged" Grid.Row="1">
+        <ListBox x:Name="devicesList" Margin="12,10,12,66" SelectionChanged="DevicesListSelectionChanged" Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
@@ -60,9 +60,9 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Click="Refresh_Click"  IconUri="Images/Icon/refresh.png" Text="Refresh" />
+            <shell:ApplicationBarIconButton Click="RefreshClick"  IconUri="Images/Icon/refresh.png" Text="Refresh" />
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Click="add_manually" Text="Add manually"/>
+                <shell:ApplicationBarMenuItem Click="AddManually" Text="Add manually"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

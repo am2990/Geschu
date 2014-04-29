@@ -27,8 +27,8 @@ namespace GestureClient
     
     public partial class ShapesProperties : PhoneApplicationPage
     {
-        private Profile connectedProfile = null;
-        private Shapes shape = null;
+        private GeschuProfile connectedProfile = null;
+        private ShapeProperty shape = null;
         private int profile_id, shape_index, device_id;
         private string profile_id_s, shape_index_s, device_id_s;
   
@@ -53,12 +53,12 @@ namespace GestureClient
 
         private void getProfile(int profileId, int deviceId)
         {
-            this.connectedProfile = Profile.get_profile(profileId, deviceId);
+            this.connectedProfile = GeschuProfile.GetProfile(profileId, deviceId);
         }
 
         private void getShape(int shapeIndex)
         {
-            this.shape = this.connectedProfile.get_profile_shape(shapeIndex);
+            this.shape = this.connectedProfile.GetProfileShape(shapeIndex);
         }
 
         private void update_color_picker()
@@ -98,7 +98,7 @@ namespace GestureClient
             string Color = color_picker.SelectedItem as string;
             string Shape = shape_picker.SelectedItem as string;
             string Char = character.Text;
-            Shapes oldShape, newShape;
+            ShapeProperty oldShape, newShape;
             Shape temporaryShape;
             oldShape = this.shape;
             if (Shape == "Circle")
@@ -108,9 +108,9 @@ namespace GestureClient
                     temporaryShape.Fill = new SolidColorBrush(Colors.Red);
                 else
                     temporaryShape.Fill = new SolidColorBrush(Colors.Blue);
-                temporaryShape.Height = oldShape.load_shape().Height;
-                temporaryShape.Width = oldShape.load_shape().Width;
-                newShape = new Shapes(temporaryShape, oldShape.transform, Char);
+                temporaryShape.Height = oldShape.GetShape().Height;
+                temporaryShape.Width = oldShape.GetShape().Width;
+                newShape = new ShapeProperty(temporaryShape, oldShape.transform, Char);
             }
             else
             {
@@ -119,12 +119,12 @@ namespace GestureClient
                     temporaryShape.Fill = new SolidColorBrush(Colors.Red);
                 else
                     temporaryShape.Fill = new SolidColorBrush(Colors.Blue);
-                temporaryShape.Height = oldShape.load_shape().Height;
-                temporaryShape.Width = oldShape.load_shape().Width;
-                newShape = new Shapes(temporaryShape, oldShape.transform, Char);
+                temporaryShape.Height = oldShape.GetShape().Height;
+                temporaryShape.Width = oldShape.GetShape().Width;
+                newShape = new ShapeProperty(temporaryShape, oldShape.transform, Char);
             }
-            this.connectedProfile.update_shape(this.shape_index, newShape);
-            this.connectedProfile.save();
+            this.connectedProfile.UpdateShape(this.shape_index, newShape);
+            this.connectedProfile.Save();
         }
 
         private void saveProperties(object sender, RoutedEventArgs e)

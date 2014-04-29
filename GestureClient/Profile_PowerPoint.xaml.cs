@@ -33,7 +33,7 @@ namespace GestureClient
             if (NavigationContext.QueryString.TryGetValue("Id", out id))
             {
                 deviceid = id;
-                List<Device> devices = (List<Device>)Database.get("device");
+                List<Device> devices = (List<Device>)Database.Get("device");
                 foreach (Device d in devices)
                 {
                     if ((d.id.ToString()) == id)
@@ -53,7 +53,7 @@ namespace GestureClient
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            String uri = "/UserProfile.xaml?" + "Id=" + deviceid;
+            String uri = "/userProfiles.xaml?" + "Id=" + deviceid;
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 

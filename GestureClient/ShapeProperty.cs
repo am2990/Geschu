@@ -7,7 +7,7 @@ using System.Windows.Shapes;
 
 namespace GestureClient
 {
-    public class Shapes
+    public class ShapeProperty
     {
         Shape shape;
         public enum ShapeType {Rectangle, Circle};
@@ -18,7 +18,7 @@ namespace GestureClient
         string value;
         public Transform transform;
         
-        public Shapes(Shape shape , double pos_x, double pos_y, string value ) 
+        public ShapeProperty(Shape shape , double pos_x, double pos_y, string value ) 
         {
             this.shape = shape;
             this.color = shape.Fill;
@@ -30,7 +30,7 @@ namespace GestureClient
             this.type = (shape is Rectangle) ? ShapeType.Rectangle : ShapeType.Circle;
         }
 
-        public Shapes(Shape shape,Transform transform, string value)
+        public ShapeProperty(Shape shape,Transform transform, string value)
         {
             this.shape = shape;
             this.color = shape.Fill;
@@ -40,25 +40,25 @@ namespace GestureClient
             this.value = value;
             this.type = (shape is Rectangle) ? ShapeType.Rectangle : ShapeType.Circle;
         }
-        public double get_row()
+        public double GetRow()
         {
             return this.row;
         }
-        public double get_column()
+        public double GetColumn()
         {
             return this.column;
         }
-        public ShapeType get_type()
+        public ShapeType GetType()
         {
             return this.type;
         }
-        public Shape load_shape()
+        public Shape GetShape()
         {
             return this.shape;
         }
 
         
-        public void save() { }
+        public void Save() { }
 
         
     }

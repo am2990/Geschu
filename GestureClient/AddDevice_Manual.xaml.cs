@@ -18,25 +18,25 @@ namespace GestureClient
         }
 
 
-        private void Save_Device(object sender, EventArgs e)
+        private void SaveDevice(object sender, EventArgs e)
         {
             
             if (string.IsNullOrWhiteSpace(DeviceName.Text))
             {
-                MessageBox.Show("A Device Name is required.");
+                MessageBox.Show("A device Name is required.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(DeviceIP.Text))
             {
-                MessageBox.Show("The Device IP Address is required.");
+                MessageBox.Show("The device IP Address is required.");
                 return;
             }
 
             else
             {
                 Device saveDevice = new Device(DeviceName.Text.GetHashCode(), DeviceName.Text, DeviceIP.Text);
-                List<Device> deviceList = (List<Device>)Database.get("device");
+                List<Device> deviceList = (List<Device>)Database.Get("device");
                 
                 if (!deviceList.Contains(saveDevice))
                 {
@@ -45,7 +45,7 @@ namespace GestureClient
                         deviceList.RemoveAt(3);
                     }
                     deviceList.Add(saveDevice);
-                    Database.add("device", deviceList);
+                    Database.Add("device", deviceList);
                 }
 
                 NavigationService.Navigate(new Uri("/Mainpage.xaml", UriKind.Relative));
@@ -55,7 +55,7 @@ namespace GestureClient
 
         }
 
-        private void Remove_Text(object sender, RoutedEventArgs e)
+        private void RemoveText(object sender, RoutedEventArgs e)
         {
             TextBox t = sender as TextBox;
             t.Text = "";

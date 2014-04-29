@@ -24,7 +24,7 @@ namespace GestureClient
         private Shape addition_shape = null;
 
         private enum SHAPES_ALLOWED { circle, rectangle };
-        private Profile controller_profile = null;
+        private GeschuProfile controller_profile = null;
 
         private static SHAPES_ALLOWED default_shape = SHAPES_ALLOWED.rectangle;
         private string default_profile_name = "Profile Name";
@@ -32,9 +32,9 @@ namespace GestureClient
         public Controller()
         {
             InitializeComponent();
-            controller_profile = new Profile("temp_user", 0 , -1);
+            controller_profile = new GeschuProfile("temp_user", 0 , -1);
             profile_name.Text = this.default_profile_name;
-            //this.activateBlinker();
+            //this.ActivateBlinker();
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -49,7 +49,7 @@ namespace GestureClient
             
         }
 
-        void activateBlinker()
+        void ActivateBlinker()
         {
             string display_text = profile_name.Text;
             Boolean display = true;
@@ -77,7 +77,7 @@ namespace GestureClient
 
         void Rectangle_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
         {
-            // Save the original color before changing the color.
+            // Save the originalShapeProperty color before changing the color.
             Rectangle rect = sender as Rectangle;
             stationaryBrush = rect.Fill;
             rect.Fill = transformingBrush;
@@ -101,7 +101,7 @@ namespace GestureClient
 
         void Rectangle_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
         {
-            // Restore the original color.
+            // Restore the originalShapeProperty color.
             Rectangle rect = sender as Rectangle;
             rect.Fill = stationaryBrush;
         }
@@ -155,7 +155,7 @@ namespace GestureClient
         {
             if (addition_shape != null)
             {
-                controller_profile.add_Shapes(addition_shape,
+                controller_profile.AddShapes(addition_shape,
                     addition_shape.RenderTransform,
                     "A");
             }
@@ -166,23 +166,23 @@ namespace GestureClient
         {
             if (addition_shape != null)
                 this.update_profile();
-            controller_profile.save();
+            controller_profile.Save();
         }
         
-        private Shape shape_clone(Shapes original)
+        private Shape shape_clone(ShapeProperty original)
         {
 
             Shape clone_shape = null;
-            if (original.get_type() == Shapes.ShapeType.Rectangle)
+            if (original.GetType() == ShapeProperty.ShapeType.Rectangle)
                 clone_shape = new Rectangle();
             else
                 clone_shape = new Ellipse();
-            Shape original_shape = original.load_shape();
+            Shape original_shape = original.GetShape();
             clone_shape.Fill = original_shape.Fill;
             clone_shape.Height = original_shape.Height;
             clone_shape.Width = original_shape.Width;
-            //clone_shape.SetValue(Grid.RowProperty, (int) original.get_row());
-            //clone_shape.SetValue(Grid.ColumnProperty, (int) original.get_column());
+            //clonedShape.SetValue(Grid.RowProperty, (int) originalShapeProperty.GetRow());
+            //clonedShape.SetValue(Grid.ColumnProperty, (int) originalShapeProperty.GetColumn());
             clone_shape = set_shape_transform(clone_shape);
             clone_shape = set_shape_listener(clone_shape);
             clone_shape.RenderTransform = original.transform;
@@ -191,18 +191,18 @@ namespace GestureClient
 
         private void load_profile()
         {
-            this.controller_profile = Profile.get_profile(0, -1);
-            this.controller_profile.clear_commits();            
+            this.controller_profile = GeschuProfile.GetProfile(0, -1);
+            this.controller_profile.ClearCommits();            
             if (this.controller_profile == null)
                 return;
             Shape clone_shape;
-            foreach (Shapes profile_shapes in this.controller_profile.get_profile_shapes())
+            foreach (ShapeProperty profile_shapes in this.controller_profile.GetProfileShapes())
             {
                 clone_shape = shape_clone(profile_shapes);
                 list_box.Items.Add(clone_shape);
-                this.controller_profile.commit_Shapes(clone_shape, clone_shape.RenderTransform, "A");
+                this.controller_profile.CommitShapes(clone_shape, clone_shape.RenderTransform, "A");
             }
-            this.controller_profile.include_commits();
+            this.controller_profile.IncludeCommits();
             
         }
 
@@ -237,7 +237,7 @@ namespace GestureClient
         private void Save_Click(object sender, EventArgs e)
         {
             this.save_profile();
-            NavigationService.Navigate(new Uri("/UserProfile.xaml",UriKind.Relative));
+            NavigationService.Navigate(new Uri("/userProfiles.xaml",UriKind.Relative));
             if ((profile_name.Text == this.default_profile_name) ||
                     (profile_name.Text.Trim().Length == 0))
                 MessageBox.Show("Enter a valid name for the profile");

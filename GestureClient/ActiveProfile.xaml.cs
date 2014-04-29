@@ -13,7 +13,8 @@ namespace GestureClient
 {
     public partial class ActiveProfile : PhoneApplicationPage
     {
-        private Profile profile = null;
+        private GeschuProfile profile = null;
+
         public ActiveProfile()
         {
             InitializeComponent();
@@ -21,44 +22,40 @@ namespace GestureClient
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            string profile_id_s, owner_id_s;
-            int profile_id, owner_id;
-            NavigationContext.QueryString.TryGetValue("profileid", out profile_id_s);
-            NavigationContext.QueryString.TryGetValue("ownerid", out owner_id_s);
-            profile_id = Convert.ToInt32(profile_id_s);
-            owner_id = Convert.ToInt32(owner_id_s);
-            this.loadProfile(profile_id,owner_id);
+            string profileIds, ownerIds;
+            int profileId, ownerId;
+            NavigationContext.QueryString.TryGetValue("profileid",
+                out profileIds);
+            NavigationContext.QueryString.TryGetValue("ownerid",
+                out ownerIds);
+            profileId = Convert.ToInt32(profileIds);
+            ownerId = Convert.ToInt32(ownerIds);
+            this.LoadProfile(profileId, ownerId);
         }
 
-        private Shape shape_clone(Shapes original)
+        private Shape ShapeClone(ShapeProperty originalShapeProperty)
         {
-
-            Shape clone_shape = null;
-            if (original.get_type() == Shapes.ShapeType.Rectangle)
-                clone_shape = new Rectangle();
+            Shape clonedShape = null;
+            if (originalShapeProperty.GetType() == ShapeProperty.ShapeType.Rectangle)
+                clonedShape = new Rectangle();
             else
-                clone_shape = new Ellipse();
-            Shape original_shape = original.load_shape();
-            clone_shape.Fill = original_shape.Fill;
-            clone_shape.Height = original_shape.Height;
-            clone_shape.Width = original_shape.Width;
-            //clone_shape.SetValue(Grid.RowProperty, (int) original.get_row());
-            //clone_shape.SetValue(Grid.ColumnProperty, (int) original.get_column());
-            //clone_shape = set_shape_transform(clone_shape);
-            //clone_shape = set_shape_listener(clone_shape);
-            clone_shape.RenderTransform = original.transform;
-            return clone_shape;
+                clonedShape = new Ellipse();
+            Shape originalShape = originalShapeProperty.GetShape();
+            clonedShape.Fill = originalShape.Fill;
+            clonedShape.Height = originalShape.Height;
+            clonedShape.Width = originalShape.Width;
+            clonedShape.RenderTransform = originalShapeProperty.transform;
+            return clonedShape;
         }
 
-        private void loadProfile(int profileId, int ownerId)
+        private void LoadProfile(int profileId, int ownerId)
         {
-            Shape clone_shape = null;
-            this.profile = Profile.get_profile(ownerId,profileId);
-            foreach (Shapes profile_shapes in this.profile.get_profile_shapes())
+            Shape cloneShape = null;
+            this.profile = GeschuProfile.GetProfile(ownerId, profileId);
+            foreach (ShapeProperty profileShapes in this.profile.GetProfileShapes())
             {
-                clone_shape = shape_clone(profile_shapes);
-                list_box.Items.Add(clone_shape);
-                //this.controller_profile.commit_Shapes(clone_shape, clone_shape.RenderTransform, "A");
+                cloneShape = this.ShapeClone(profileShapes);
+                list_box.Items.Add(cloneShape);
             }
         }
     }

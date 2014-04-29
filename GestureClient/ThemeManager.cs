@@ -482,7 +482,7 @@ namespace Microsoft.Phone.Controls
                     new ThemeValue("DarkThemeOpacity", new DualValue<double>(1.0, 0.0)),
                     new ThemeValue("LightThemeOpacity", new DualValue<double>(0.0, 1.0)),
                 };
-                // If we're on 7, add 7 only colours
+                // If we're on 7, Add 7 only colours
                 if (System.Environment.OSVersion.Version.Major == 7)
                 {
                     _values.Add(new ThemeValue("RadioCheckBoxPressed", new DualColorValue(0xFFFFFFFF, 0x00000000)));
@@ -518,7 +518,7 @@ namespace Microsoft.Phone.Controls
                     }
                     else
                     {
-                        // If it's not in the dictionary, add it.
+                        // If it's not in the dictionary, Add it.
                         currentColor = color;
                         Application.Current.Resources.Add(prefix + "Color", currentColor);
                     }
@@ -537,7 +537,7 @@ namespace Microsoft.Phone.Controls
                     }
                     else
                     {
-                        // If it's not in the dictionary, add it.
+                        // If it's not in the dictionary, Add it.
                         var brush = new SolidColorBrush
                         {
                             Color = color
@@ -737,7 +737,7 @@ namespace Microsoft.Phone.Controls
                         Color c = (Color)rd[item];
                         string keyName = item.Replace("Phone", "").Replace("Color", ""); // Doing this gives us the keyname used in the RuntimeThemeResources
 
-                        // Get the existing instance & remove it
+                        // Get the existing instance & Remove it
                         try
                         {
                             var itemToRemove = _values.Single(x => x._prefix == keyName);
@@ -782,7 +782,7 @@ namespace Microsoft.Phone.Controls
                 }
                 else
                 {
-                    Debug.WriteLine("No custom theme set, no resources to add");
+                    Debug.WriteLine("No custom theme set, no resources to Add");
                 }
             }
 

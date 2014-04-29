@@ -8,7 +8,7 @@ namespace GestureClient
 
         public enum Type { Device, Profile };
 
-        public static void add(string key, object value)
+        public static void Add(string key, object value)
         {
             if (storage.Contains(key))
             {
@@ -17,12 +17,12 @@ namespace GestureClient
             storage.Add(key, value);
         }
 
-        public static void remove(string key)
+        public static void Remove(string key)
         {
             storage.Remove(key);
         }
 
-        public static object get(string key)
+        public static object Get(string key)
         {
             if (storage.Contains(key))
             {

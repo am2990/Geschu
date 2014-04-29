@@ -28,16 +28,16 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBox x:Name ="DeviceName" HorizontalAlignment="Left" Height="72" Margin="2,39,-2,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" AcceptsReturn="True" GotFocus="Remove_Text" Text="Add Device Name"/>
+            <TextBox x:Name ="DeviceName" HorizontalAlignment="Left" Height="72" Margin="2,39,-2,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" AcceptsReturn="True" GotFocus="RemoveText" Text="Add Device Name"/>
             <TextBlock HorizontalAlignment="Left" Margin="20,-1,0,0" TextWrapping="Wrap" Text="Device Name" VerticalAlignment="Top" Height="45" Width="185" FontSize="30"/>
-            <TextBox x:Name ="DeviceIP" HorizontalAlignment="Left" Height="72" Margin="2,155,-2,0" TextWrapping="Wrap" Text="Visible on Running Server" VerticalAlignment="Top" Width="456" AcceptsReturn="True" GotFocus="Remove_Text" />
+            <TextBox x:Name ="DeviceIP" HorizontalAlignment="Left" Height="72" Margin="2,155,-2,0" TextWrapping="Wrap" Text="Visible on Running Server" VerticalAlignment="Top" Width="456" AcceptsReturn="True" GotFocus="RemoveText" />
             <TextBlock HorizontalAlignment="Left" Margin="20,115,0,0" TextWrapping="Wrap" Text="Device IP Address" VerticalAlignment="Top" Height="45" Width="273" FontSize="30"/>
 
         </Grid>
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Click="Save_Device"  IconUri="Images/Icon/save.png" Text="Save" />          
+            <shell:ApplicationBarIconButton Click="SaveDevice"  IconUri="Images/Icon/save.png" Text="Save" />          
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

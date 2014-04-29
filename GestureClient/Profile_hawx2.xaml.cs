@@ -49,7 +49,7 @@ namespace GestureClient
 
             if (NavigationContext.QueryString.TryGetValue("Id", out deviceid))
             {
-                List<Device> devices = (List<Device>)Database.get("device");
+                List<Device> devices = (List<Device>)Database.Get("device");
                 foreach (Device d in devices)
                 {
                     if ((d.id.ToString()) == deviceid)
@@ -65,7 +65,7 @@ namespace GestureClient
             {
                 //show user an error messgae
             }
-            // If the Motion object is null, initialize it and add a CurrentValueChanged
+            // If the Motion object is null, initialize it and Add a CurrentValueChanged
             // event handler.
             if (motion == null)
             {
@@ -87,7 +87,7 @@ namespace GestureClient
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            String uri = "/UserProfile.xaml?" + "Id=" + deviceid;
+            String uri = "/userProfiles.xaml?" + "Id=" + deviceid;
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 

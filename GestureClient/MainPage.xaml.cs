@@ -33,7 +33,7 @@ namespace GestureClient
 
         private void LoadData()
         {
-            List<Device> recentDevices = (List<Device>)Database.get("device");
+            List<Device> recentDevices = (List<Device>)Database.Get("device");
             devicesList.ItemsSource = recentDevices;
 
 
@@ -48,22 +48,22 @@ namespace GestureClient
             }
         }
 
-        private void Add_Click(object sender, EventArgs e)
+        private void AddClick(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/AddDevice.xaml", UriKind.Relative));
         }
 
         private void ClearDevices(object sender, EventArgs e)
         {
-            Database.remove("device");
+            Database.Remove("device");
             NavigationService.Navigate(new Uri(string.Format(NavigationService.Source +
                                     "?Refresh=true&random={0}", Guid.NewGuid()), UriKind.Relative));        
         }
 
-        private void DevicesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void DevicesListSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             Device item = (Device)devicesList.SelectedItem;
-            String uri = "/UserProfile.xaml?" + "Id=" + item.id;
+            String uri = "/userProfiles.xaml?" + "Id=" + item.id;
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 

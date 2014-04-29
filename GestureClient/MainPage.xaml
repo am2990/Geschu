@@ -27,7 +27,7 @@
             <!--Panorama item one-->
             <controls:PanoramaItem Header="Recent Devices" Foreground="{StaticResource PhoneAccentBrush}">
                 <!--Double line list with text wrapping-->
-                <ListBox x:Name="devicesList" SelectionChanged="DevicesList_SelectionChanged" Margin="0,0,-12,0">
+                <ListBox x:Name="devicesList" SelectionChanged="DevicesListSelectionChanged" Margin="0,0,-12,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
@@ -74,7 +74,7 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Click="Add_Click"  IconUri="Images/Icon/add.png" Text="Add" />
+            <shell:ApplicationBarIconButton Click="AddClick"  IconUri="Images/Icon/add.png" Text="Add" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Click="ClearDevices"  Text="Clear Device List"/>
             </shell:ApplicationBar.MenuItems>

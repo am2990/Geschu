@@ -8,27 +8,24 @@ namespace GestureClient
     {
         public int id { get; set; }
         public string deviceName { get; set; }
-        //public string deviceOS { get; set; }
-        //public string deviceType { get; set; }
         public string deviceIP { get; set; }
         public string devicePort { get; set; }
         private const int maxDeviceSaved = 10;
         static List<Device> devices =  new List<Device>();
 
-        public Device()
-        {
-
-        }
+        public Device() { }
 
         public Device(int id, string deviceName, string deviceIP)
         {
-            this.id = id; this.deviceName = deviceName; this.deviceIP = deviceIP;
+            this.id = id; 
+            this.deviceName = deviceName; 
+            this.deviceIP = deviceIP;
         }
 
 
-        private Device get(int id)
+        private Device Get(int id)
         {
-            foreach (Device device in getAll())
+            foreach (Device device in GetSavedDevices())
             {
                 if (device.id == id)
                     return device;
@@ -36,36 +33,37 @@ namespace GestureClient
             return null;
         }
 
-        public static List<Device> getAll()
+        public static List<Device> GetSavedDevices()
         {
             //returns all saved Devices
-            object devices_obj = Database.get("device");
-            if (devices_obj == null)
+            List<Device> devices = null;
+            object devicesObj = Database.Get("device");
+            if (devicesObj == null)
             {
                 return new List<Device>();
             }
-            List<Device> devices = devices_obj as List<Device>;
+            devices = devicesObj as List<Device>;
             return devices;
         }
 
-        private bool check()
+        private bool Check()
         {
             return true;
         }
 
-        public void save()
+        public void Save()
         {
-            if (this.check())
+            if (this.Check())
             {
-                List<Device> saved_Devices = getAll();
-                saved_Devices.Add(this);
-                Database.add("device", saved_Devices);
+                List<Device> savedDevices = GetSavedDevices();
+                savedDevices.Add(this);
+                Database.Add("device", savedDevices);
             }
 
         }
 
 
-        public void clean()
+        public void Clean()
         {
             //Cleans the database
         }
