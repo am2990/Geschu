@@ -27,10 +27,15 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Thrust" HorizontalAlignment="Left" Height="145" Margin="13,13,0,0" VerticalAlignment="Top" Width="210" Tag="87" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp" />
-            <Button Content="Brake" HorizontalAlignment="Left" Height="145" Margin="13,232,0,0" VerticalAlignment="Top" Width="210" Tag="83" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"/>
-            <Button Content="Lock" HorizontalAlignment="Left" Height="145" Margin="447,13,0,0" VerticalAlignment="Top" Width="210" Tag="68" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"/>
-            <Button Content="Fire" HorizontalAlignment="Left" Height="145" Margin="447,232,0,0" VerticalAlignment="Top" Width="210" Tag="32" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"/>
+            <Button Content="Thrust" HorizontalAlignment="Left" Height="140" Margin="145,113,0,0" VerticalAlignment="Top" Width="220" Tag="87" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp" />
+            <Button Content="Brake" HorizontalAlignment="Left" Margin="143,238,0,30" Width="220" Tag="83" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"/>
+            <Button Content="Lock" Height="140" Margin="361,113,133,0" VerticalAlignment="Top" Tag="68" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"/>
+            <Button Content="Fire" HorizontalAlignment="Left" Margin="360,238,0,30" Width="210" Tag="32" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"/>
+            <Button Content="YAW&#xD;&#xA;LEFT" HorizontalAlignment="Left" Height="115" Margin="5,5,0,0" VerticalAlignment="Top" Width="188" Tag="81" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp" />
+            <Button Content="  YAW&#xD;&#xA;RIGHT" Height="115" Margin="513,5,5,0" VerticalAlignment="Top" Tag="69" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp" />
+            <Button Content="Cannon" Margin="5,113,559,30" Tag="16" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"/>
+            <Button Content="ENGINE &#xD;&#xA;     UP" HorizontalAlignment="Left" Height="115" Margin="298,5,0,0" VerticalAlignment="Top" Width="205" Tag="82" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp" />
+            <Button Content="FLARES" Margin="558,113,5,30" Tag="70" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" MouseLeftButtonUp="OnMouseLeftUp"  />
 
         </Grid>
     </Grid>

@@ -28,22 +28,22 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button x:Name="buttonNext" Content="Next" Width="230"  Height ="149"
+            <Button x:Name="buttonNext" Content="" Width="230"  Height ="149"
                     HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="238,0,6,456" BorderThickness="5" 
                     FontSize="40" FontFamily="Segoe WP Semibold" ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp" 
                     MouseLeftButtonDown="OnMouseLeftDown" Tag="39">
                 <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/"/>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/appbar.control.fastforward.png"/>
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonPrevious" Content="Previous" 
+            <Button x:Name="buttonPrevious" Content="" 
             		Width="230"  Height ="149" HorizontalAlignment="Center" 
                     VerticalAlignment="Bottom" Margin="4,0,222,456" BorderThickness="5"
                     FontSize="40" FontFamily="Segoe WP Semibold" 
                     ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="37">
                 <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/"/>
+                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/appbar.control.rewind.png"/>
                 </Button.Background>
             </Button>
 
@@ -55,12 +55,12 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="buttonEsc" Content="ESC" Width="224"  Height ="148" 
+            <Button x:Name="buttonEsc" Content="" Width="224"  Height ="148" 
                     HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="229,0,3,274" BorderThickness="5"
                     FontSize="40" FontFamily="Segoe WP Semibold"
                     ClickMode="Hover" MouseLeftButtonUp="OnMouseLeftUp"  MouseLeftButtonDown="OnMouseLeftDown" Tag="27">
                 <Button.Background>
-                    <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/"/>
+                    <ImageBrush Stretch="Fill" ImageSource="/Toolkit.Content/ApplicationBar.Cancel.png"/>
                 </Button.Background>
 
             </Button>

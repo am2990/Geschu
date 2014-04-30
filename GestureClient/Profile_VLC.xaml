@@ -32,7 +32,7 @@
             <Button x:Name="Play" HorizontalAlignment="Left" Margin="3,-8,0,0" VerticalAlignment="Top" Height="167" 
                     Width="230"  
                     MouseLeftButtonUp="OnMouseLeftUp" ClickMode="Hover" MouseLeftButtonDown="OnMouseLeftDown" 
-                    Tag="32" BorderBrush="Black" >
+                    Tag="32" BorderBrush="WhiteSmoke" >
                 <Button.Background>
                     <ImageBrush Stretch="Fill" ImageSource="/Images/Icon/appbar.control.play.png"/>
                 </Button.Background>
