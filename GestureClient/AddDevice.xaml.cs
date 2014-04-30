@@ -37,7 +37,7 @@ namespace GestureClient
         {
             Device item = (Device)devicesList.SelectedItem;
             AddToRecentDevices(item);
-            String uri = "/userProfiles.xaml?" + "Id=" + item.id;
+            String uri = "/UserProfile.xaml?" + "Id=" + item.id;
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 
